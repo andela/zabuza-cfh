@@ -17,5 +17,8 @@
     "angular-ui-utils": {
       "modules": "modules/route/route.js"
     }
+  },
+  "resolutions": {
+    "jquery": "~1.9.1"
   }
 }
