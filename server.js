@@ -1,6 +1,7 @@
 /**
  * Module dependencies.
  */
+require('dotenv').config();
 var express = require('express'),
     fs = require('fs'),
     passport = require('passport'),
@@ -12,7 +13,6 @@ var express = require('express'),
  * Please note that the order of loading is important.
  */
 
-//Load configurations
 //if test env, load example file`
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     config = require('./config/config'),
