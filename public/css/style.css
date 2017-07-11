@@ -340,21 +340,23 @@ a.friends-btn {
   padding: 0px;
 }
 div.make-impact h3 {
-  padding: 20px 0px 0px 0px;
+  padding: 10px 0px 0px 0px;
   text-transform: uppercase;
   font-family: 'Lobster', 'san-serifs';
 }
 div.make-impact p {
-  padding: 0px 20px;
+  padding: 0px 15px;
+  text-align: left;
+  line-height: 30px;
 }
 .embed-responsive-16by9 {
-    padding-bottom: 36.5% !important;
+    padding-bottom: 34.2% !important;
 }
-div.crowdrise {
-  margin-top: -20px;
-  height: 200px;
-  width: 350px;
-}
+ div.crowdrise {
+  margin-top: -40px;
+  height: 170px;
+  width: 340px;
+} 
 div.col-sm-12 div.crowdrise {
   margin-right: auto;
   margin-left: auto;
