@@ -28,6 +28,16 @@ body {
 }
 #nav-bar a{
   color: #fff ! important;
+
+}
+.nav li a{
+  height: 40px;
+  padding-top: 10px;
+}
+.nav li a:hover {
+  opacity: 0.6;
+  cursor: pointer;
+  transition: 0.4s;
 }
 
 
@@ -77,14 +87,19 @@ body {
    padding-top: 15%;
 }
 
+div#right a:hover, div#left a:hover {
+  cursor: pointer;
+}
+
 .strike {
-        display: block;
-        text-align: center;
-        overflow: hidden;
-        white-space: nowrap; 
-        font-size: 2.5em;
-        color: #e67e22;
-        font-family: 'Lobster', 'san-serif';
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap; 
+  font-size: 2.5em;
+  color: #cf6d17;
+  font-family: 'Lobster', 'san-serif';
+  padding: 30px 0 0 0;
     }
 
     .strike > span {
@@ -168,32 +183,36 @@ div#gamerules{
    text-align: center;
  }
  #sign-up-btn-landing {
-      color: #fff;
-    font-size: 27px;
+    color: #fff;
+    font-size: 20px;
     font-family: 'Lato', sans-serif;
-    padding: 15px 60px;
-    border-radius: 10px;
-    border: none;
-    background: #e67e22;
-    margin: 30px;
+    padding: 6px 25px;
+    border-radius: 5px;
+    border: 2px solid #cf6d17;
+    background: #cf6d17;
+    margin: 25px;
  }
 
 #sign-up-btn-landing:hover {
      background:#993300;
+     border: 2px solid #993300;
+     transition: 0.5s ease-out;
 }
 #guest-btn {
-    color: #993300;
-    font-size: 27px;
+    color: #cf6d17;
+    font-size: 20px;
     font-family: 'Lato', sans-serif;
-    padding: 13px 60px;
-    border-radius: 10px;
-    border: 2px solid #e67e22;
+    padding: 6px 13px;
+    border-radius: 5px;
+    border: 2px solid #cf6d17;
     background: #fff;
-    margin: 30px;
+    margin: 25px;
 }
 
 #guest-btn:hover {
   border: 2px solid #993300;
+  color: #993300;
+  transition: 0.6s;
 }
 div.sign-up span a {
   text-decoration: none;
@@ -202,13 +221,13 @@ a.stranger-btn {
   padding: 7px 15px;
   margin-right: 20px;
   border-radius: 5px;
-  border: 1px solid #ff8000;
-  background-color: #ff8000;
+  border: 1px solid #cf6d17;
+  background-color: #cf6d17;
   color: #fff;
 }
 
 .stranger-btn:hover, .friends-btn:hover {
-  opacity: 0.5;
+  opacity: 0.7;
   transition-duration: 0.5s;
 }
 
@@ -217,8 +236,8 @@ a.friends-btn {
   margin-top: 35px;
   margin-right: 20px;
   border-radius: 5px;
-  border: 1px solid #ff8000;
-  background-color: #ff8000;
+  border: 1px solid #cf6d17;
+  background-color: #cf6d17;
   color: #fff;
 }
 #join-game {
@@ -226,14 +245,14 @@ a.friends-btn {
   margin-top: 10px;
   margin-right: 20px;
   border-radius: 5px;
-  border: 1px solid #ff8000;
-  background-color: #ff8000;
+  border: 1px solid #cf6d17;
+  background-color: #cf6d17;
   color: #fff;
-  margin: 2px 50px;
+  margin: 2px 300px;
 }
 
 #join-game:hover {
-  opacity: 0.5;
+  opacity: 0.7;
   transition-duration: 0.5s;
 }
 
@@ -278,10 +297,12 @@ a.friends-btn {
   margin-top: 60px;
 }
 
-  .btn-danger{
+  .btn-danger {
     background-color:#e67e22;
     border: #e67e22;
+    border: 1px solid #e67e22;
   }
+  
   .collapsemenu {
     color: #fff;
   }
@@ -291,20 +312,32 @@ a.friends-btn {
   text-align: center;
   font-family: 'Lobster';
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 60px;
   margin-top: 10px;
+}
+.team-name {
+  padding-top: 10px;
+}
+
+.meet-the-team h2 {
+  padding-bottom: 60px;
 }
 .team-img {
   margin: auto;
-  width: 180px;
-  height: 180px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
 }
 
-.make-impact {
+.left-wing {
   background: url('../img/bgtest.png');
+  padding-bottom: 25px;
+}
+
+.make-impact {
   color: #fff;
   text-align: center;
+  padding: 0px;
 }
 div.make-impact h3 {
   padding: 20px 0px 0px 0px;
@@ -315,7 +348,7 @@ div.make-impact p {
   padding: 0px 20px;
 }
 .embed-responsive-16by9 {
-    padding-bottom: 37.3% !important;
+    padding-bottom: 36.5% !important;
 }
 div.crowdrise {
   margin-top: -20px;
@@ -325,6 +358,9 @@ div.crowdrise {
 div.col-sm-12 div.crowdrise {
   margin-right: auto;
   margin-left: auto;
+}
+div.col-sm-12 div.crowdrise:hover {
+  cursor: pointer;
 }
 
 div.make-a-wish {
@@ -357,8 +393,11 @@ div.col-lg-4 ul li a{
 div.col-lg-4 ul {
   margin-top: 40px;
 }
-strong {
-  color: green;
+.legal-stuff {
+  padding: 25px;
+}
+.privacy-policy {
+  margin-top: 25px;
 }
 @media (max-width: 1200px) {
     .strike {
@@ -367,9 +406,10 @@ strong {
         overflow: hidden;
         white-space: nowrap; 
         font-size: 2.5em;
-        font-weight: sbold;
-        color: #B30707;
     }
+    .embed-responsive-16by9 {
+    padding-bottom: 47% !important;
+}
 
     .strike > span {
         position: relative;
@@ -402,6 +442,13 @@ strong {
   div#gamerules{
   display: inline-block;
 }
+}
+@media(min-width: 769px) and (max-width: 1199px) {
+  .left-wing {
+  background: url('../img/bgtest.png');
+  padding-bottom: 105px;
+  padding-top: 20px;
+}
 
 }
 
@@ -426,5 +473,19 @@ strong {
   .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
     background-color: #e67e22;
     color: #fff;
+  }
+  .left-wing {
+  background: url('../img/bgtest.png');
+  padding-bottom: 25px;
+  padding-top: 20px;
+}
+#join-game {
+  margin: 2px 30px;
+}
+#cfh{
+    font-size: 3em;
+}
+.btn-danger:hover {
+    border:  1px solid #cf6d17;
   }
 }
