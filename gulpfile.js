@@ -37,7 +37,7 @@ gulp.task('bootstrap', () => {
 });
 
 gulp.task('jquery', () => {
-  gulp.src('bower_components/juery/**/*')
+  gulp.src('bower_components/jquery/**/*')
     .pipe(gulp.dest('public/lib/jquery'));
 });
 
