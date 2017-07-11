@@ -6,7 +6,13 @@
     "angular-bootstrap": "~0.4.0",
     "angular-ui-utils": "0.0.4",
     "jquery": "~1.9.1",
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "angular-unstable": "1.1.5",
+    "angular-route": "1.2.0",
+    "angular-cookies": "1.2.0",
+    "angular-resource": "1.2.0",
+    "angular": "1.2.0",
+    "font-awesome": "^4.7.0"
   },
   "exportsOverride": {
     "bootstrap": {
