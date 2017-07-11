@@ -1,4 +1,5 @@
- <script>
+
+<script>
        var angle = 0;
 function galleryspin(sign) { 
 spinner = document.querySelector("#spinner");
@@ -6,64 +7,53 @@ if (!sign) { angle = angle - 45; } else { angle = angle + 45; }
 spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-transform: rotateY("+ angle +"deg); transform: rotateY("+ angle +"deg);");
 }
 
-      </script>
-<script type="text/javascript">
-$(document).ready(function() {
-
-  var ChroMo = '(Chrome)/(\d+)\.(\d+)\.(\d+)\.(\d+) Mobile';
-
-  if
-(/Android|webOS|CriOs|ChroMo|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) === false && location.href !== "http://localhost:3000/#!/app") {
-    $('body').append('<a href="https://hackreactor.com"><img style="z-index: 10000; position: absolute; top: 0; right: 0; width: 125px; height: 125px; border: 0;" src="http://i.imgur.com/x86kKmF.png" alt="Built at Hack Reactor"></a>');
-  }
-
-  //Twitter buttons
-  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-
-  });
-</script>
-
-<script></script>
-
+ </script>
+     
 <!-- Landing Start -->
-<div landing>
-        <div class ="containerhead" landing id="main-bod">
-        <div class="row">
-            
-            <div class="col-md-12 wpb-menu-container">
-              <ul class="wpb-main-menu">
-                <li><button class="btn btn-primary" onClick="scroll(0,742);">How to Play</button></li>
-      
-                <span ng-show="showOptions">
-                   <li><button class="btn btn-default" onclick="location.href='#!/signin'">Login</button></li>
-                   <li><a href="#!/signup">Sign Up</a></li>
-                </span>
-                <span ng-hide="showOptions">
-                  <li><a href="/signout">Sign Out</a></li>
-                </span>
-                  <li><a onClick="scroll(0,1411);">Donate</a></li>
+<div landing class="container-fluid">
+        <div class ="container-fluid">
+          <div id="landing">
+          <nav class="navbar navbar-default scrolled" id="nav-bar">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span id="collapsemenu">Menu</span>                       
+                </button>
+              <!--<a class="navbar-brand" href="#"></a>-->
+              </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" onClick="scroll(0,742);" class="btn btn-danger">How to Play</a></li> 
+                <li ng-hide="showOptions"><a href="/signout">Sign Out</a></li></span>
+                <li><a onClick="scroll(0,1411);">Donate</a></li>
               </ul>
-            </div>
-        </div>
 
-      <div>
-        <div class="logo">
-          <img src="../img/logo.png" alt="logo"/><br>
-          <span id="cfh"> Cards for Humanity </span><br>
-          <span id="description"> A party game for good people </span>
+              <ul class="nav navbar-nav navbar-right" ng-show="showOptions">
+                <li><a href='#!/signin' class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href='#!/signup'><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              </ul>
+    
+            </div>
+          </div>
+        </nav>
+
+   
+      <div id="center">
+          <img src="../img/logo.png" alt="logo" id="logo"/>
+          <p id="cfh"> Cards for Humanity </p>
+          <p id="description"> A party game for good people </p>
         </div>
-      <div ng-controller="IndexController"></div>
-      <!-- Teaser Text End -->
-    </div>
 <!-- Landing End -->
+  </div>
 
 <div class="space"></div>
-
 <!-- How to Play Start -->
 <section id="how-to">
   <div id="how-to-play">
     <div class="container" id="how-to-container">
-       <div class="how-to-play">
+ 
+<!--  Rules-->
+      <div class="how-to-play">
           <div class="strike">
             <span>How to Play</span>
           </div>
@@ -88,12 +78,39 @@ $(document).ready(function() {
         </div>
           </div>
   </div>
+
+<!--  Rules-->
+
+<!--- AlternativeRules -->
+<div class="row" id="gamerules">
+   <div class="strike">
+            <span>How to Play</span>
+    </div>
+  <div class="col-md-3 col-sm-6 col-xs-6">
+     <img src="../img/Rule1.png" alt="rules" class="rules">
+    </div>
+     <div class="col-md-3 col-sm-6 col-xs-6">
+       <img src="../img/Rule2.png" alt="rules" class="rules">
+    </div>
+      <div class="col-md-3 col-sm-6 col-xs-6">
+        <img src="../img/Rule3.png" alt="rules" class="rules">
+    </div>
+      <div class="col-md-3 col-sm-6 col-xs-6">
+         <img src="../img/Rule4.png" alt="rules" class="rules">
+    </div> 
+  </div>
+<!--- AlternativeRules -->
+
+<div id='send-link'>
 <marquee scrollamount="5">
-   <span id='send-link' ng-show="showOptions"> To send a private link to your friends, sign up! </span>
+   <span ng-show="showOptions"> To send a private link to your friends, sign up! </span>
 </marquee>
- <div id="sign-up">
+</div>
+
+ <div id="sign-up" class="row" ng-controller="IndexController">
+
         <span ng-show="showOptions">
-        <button id="sign-up-btn-landing" onclick="location.href='#!/signup'">Sign Up</button>
+          <button id="sign-up-btn-landing" onclick="location.href='#!/signup'">Sign Up</button>
           <button id="guest-btn" onclick="location.href='/play'">Play as Guest</button><br>
           <span id="tweet-container-index">
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfh.io" data-text="Cards for Humanity: A Game for Horrible People Desperately Trying to do Good" data-related="CFH_App">Tweet</a>
@@ -111,9 +128,18 @@ $(document).ready(function() {
               </a>
           </span>
         </span>
+        <div class="sign-up">
+          <span ng-hide="showOptions">
+            <a href="/play" id="play-with-stranger" class="stranger-btn">Play with Strangers</a> <br class="visible-xs"><br class="visible-xs">
+            <a href="/play?custom" id="play-with-friends" class="friends-btn">Play with Friends</a>
+          </span>
+        </div>
+      <div class="sign-up">
         <span ng-hide="showOptions">
-          <a href="/play"><div id="splay-with-stranger" class="btn btn-danger">Play Game with Strangers</div></a>
-          <a href="/play?custom"><div id="play-with-friends" class="btn btn-danger">Play Game with Friends</div></a>
+          <a href="#!/app"><div id="join-game">Join Game</div></a>
+        </span>
+        </div>        
+        <div ng-hide="showOptions" id="facetweet">
               <span id='twitter-facebook'>
                 <span id="tweet-container-index">
                   <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfh.io" data-text="Cards for Humanity: A Game for Horrible People Desperately Trying to do Good" data-related="CFH_App">Tweet</a>
@@ -131,84 +157,84 @@ $(document).ready(function() {
                     </a>
                 </span>
               </span>
-        </span>
+            </div>
        </div>
 
-
-      <div id="sign-up">
-        <span ng-hide="showOptions">
-          <a href="#!/app"><div id="join-game" class="btn btn-danger">Join Game</div></a>
-        </span>
-       </div>
-    </div>
 </section>
 <!-- How to Play End -->
 
-<section id="meet-the-team">
-    <h2>Meet The Team</h2>
-    <div class="flex-container">
-        <div>
-          <img src="../img/seun.jpg" alt="image-1" class="flex-item team-img img-responsive" />
-          <h3 class="team-name">Seun Adekunle</h3>
-        </div>
-        <div>
-          <img src="../img/tolu.jpg" alt="image-2" class="flex-item team-img img-responsive" />
-          <h3 class="team-name">Tolulope Duyile</h3>
-        </div>
-        <div>
-          <img src="../img/vanessa.jpg" alt="image-3" class="flex-item team-img img-responsive" />
-          <h3 class="team-name">Vanessa Ejikeme</h3>
-        </div>
-        <div>
-          <img src="../img/daniel.jpg" alt="image-4" class="flex-item team-img img-responsive" />
-          <h3 class="team-name">Daniel Amah</h3>
-        </div>
-        <div>
-          <img src="../img/fisayo.jpg" alt="image-5" class="flex-item team-img img-responsive" />
-          <h3 class="team-name">Olufisayo Bamidele</h3>
-        </div>
-
-    </div>
-</section>
-
-<section id="charity">
-    <div class="left-wing">
-        <p>We're quite sure you feel the same way, so we've integrated donation widgets (via crowdrise.com), along with some not-so-subtle reminders throughout the game to give you the opportunity to donate. If you're signed in when you donate, we'll even upgrade your account and place a crown on your avatar's head (to remind other players how much better you are than them). All donations go to the Make-a-Wish Foundation and benefit children in need.</p>
-        <div class="small-box">
-          <h4>MAKE AN IMPACT</h4>
-          <div>
-            <span class="big-num">$681</span>
-            <p class="amt">AMOUNT </br>RAISED </p>
+  <div class="meet-the-team">
+    <h2>MEET THE TEAM</h2>
+      <div class="row"> 
+          <div class="col-xs-3 col-sm-2 col-md-1">
           </div>
-          <button class="donate-btn">DONATE NOW</button> </br>
-          <img class="crowd-rise" src="../img/CRLogo.png" alt="logo" width="25%" height="9%"/>
+          <div class="col-xs-6 col-sm-4 col-md-2">
+            <img src="../img/tolu.jpg" alt="image-1" class="team-img" />
+            <h4 class="team-name">Tolulope Duyile</h4>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-2">
+            <img src="../img/seun.jpg" alt="image-2" class="team-img" />
+            <h4 class="team-name">Seun Adekunle</h4>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-2">
+            <img src="../img/vanessa.jpg" alt="image-3" class="team-img" />
+            <h4 class="team-name">Vanessa Ejikeme</h4>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-2">
+            <img src="../img/daniel.jpg" alt="image-4" class="team-img" />
+            <h4 class="team-name">Daniel Amah</h4>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-2">
+            <img src="../img/fisayo.jpg" alt="image-5" class="team-img" />
+            <h4 class="team-name">Olufisayo Bamidele</h4>
+          </div>
+          <div class="col-xs-3 col-sm-2 col-md-1">
+          </div>
         </div>
-        <div class="make-a-wish">
-            <img src="../img/makeawish.png" alt="make a wish" />
-        </div>
-    </div>
-    <div class="right-wing">
-      <iframe src="https://www.youtube.com/embed/LoEyd6_jztc" frameborder="0" allowfullscreen></iframe>
-    </div>
-</section>
+      </div>
 
-<footer class="footer flex-container">
-    <div class="copyright flex-item">
-        <p>&copy; Cards for Humanity, All right reserved.</p>
-        <p>Designed by Team Zabuza Class 27.</p>
-        <p><img src="../img/github.png" alt="github" style="width:50px; height:50px"/> PRIVACY POLICY</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 left-wing">
+      <div class="make-impact">
+        <h3>Make an impact</h3>
+        <p>We're quite sure you feel the same way, so we've integrated donation widgets (via crowdrise.com), along with some not-so-subtle reminders throughout the game to give you the opportunity to donate. If you're signed in when you donate, we'll even upgrade your account and place a crown on your avatar's head (to remind other players how much better you are than them). All donations go to the Make-a-Wish Foundation and benefit children in need.</p>
+        <div class="row">
+          <div class="col-sm-12 col-md-8">
+            <div class="crowdrise">
+              <a href="http://www.crowdrise.com/cfhio/fundraiser/cards4humanity" id="crowdriseStaticLink-fundraiser-121142" title="Fundraising Websites on Crowdrise">Fundraising Websites - Crowdrise</a>
+              <script type="text/javascript" src="https://www.crowdrise.com/widgets/donate/fundraiser/121142/?callback=userDonationCb"></script>
+            </div>
+          </div>
+            <div class="col-sm-12 col-md-4 make-a-wish">
+              <img src="../img/makeawish.png" alt="make a wish" />
+            </div>
+        </div>
+      </div>
     </div>
-    <div class="footer-paragraph flex-item">
-        <p><strong>Legal stuff:</strong> This game is based on the card for humanity card game. Which is CC licensed(BY-NC-SA). Cards for Humanity is not affiliated with Cards Against Humanity In complying with the Creative Commons license of the Cards Against Humanity card game, all proceeds from donations go directly to charity, as managed by crowdrise.</p>
+    <div class="col-sm-12 col-md-6 embed-responsive embed-responsive-16by9">
+      <iframe src="https://www.youtube.com/embed/LoEyd6_jztc"></iframe>
     </div>
-    <div class="footer-btn flex-item">
-        <ul >
+  </div>
+</div>
+<div class="container-fluid footer">
+  <div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-4">
+        <ul>
             <li><a onClick="scroll(0,0);">Home</a></li>
             <li><a onClick="scroll(0,742);">How to play</a></li>
             <li><a onClick="scroll(0,2000);">Donate</a></li>
             <li ng-show="showOptions"><a href="#!/signin">Log in</a></li>
             <li><a onClick="scroll(0,0);">Back to top <i class="fa fa-angle-up" aria-hidden="true"></i></a></li>
         </ul>
+  </div>
+    <div class="col-sm-12 col-md-4 col-lg-4">
+      <p><strong>Legal stuff:</strong> This game is based on the card for humanity card game. Which is CC licensed(BY-NC-SA). Cards for Humanity is not affiliated with Cards Against Humanity In complying with the Creative Commons license of the Cards Against Humanity card game, all proceeds from donations go directly to charity, as managed by crowdrise.</p>
     </div>
-
-</footer>
+    <hr class="hidden-md">
+    <div class="col-sm-12 col-md-4 col-lg-4">
+      <p>&copy;Cards for Humanity, All right reserved. </br> Designed by Team Zabuza Class 27.</p>
+      <p><i class="fa fa-github fa-2x" aria-hidden="true"></i> PRIVACY POLICY</p>
+    </div>
+</div>
+</div>
