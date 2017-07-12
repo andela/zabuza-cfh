@@ -20,6 +20,9 @@ body {
     transition: all 0.6s ease-out;
  
 }
+  .row {
+    margin-right: 15px !important;
+  }
 
 
 #navbar .scrolled {
@@ -335,6 +338,11 @@ a.friends-btn {
   padding-bottom: 25px;
 }
 
+.youtube {
+  width: 653px;
+  height: 546px;
+  margin-left: -15px;
+}
 .make-impact {
   color: #fff;
   text-align: center;
@@ -346,34 +354,37 @@ div.make-impact h3 {
   font-family: 'Lobster', 'san-serifs';
 }
 div.make-impact p {
-  padding: 0px 15px;
+  padding: 0px 10px;
   text-align: left;
   line-height: 30px;
 }
-.embed-responsive-16by9 {
-    padding-bottom: 34.2% !important;
-}
- div.crowdrise {
+/* .embed-responsive-16by9 {
+    padding-bottom: 34.1% !important;
+} */
+ div.crowdrise a img {
   margin-top: -40px;
-  height: 170px;
+  height: 190px;
   width: 340px;
+  margin: 30px 0px 45px 0px; 
 } 
-div.col-sm-12 div.crowdrise {
+div.col-sm-12 div.crowdrise a img{
   margin-right: auto;
   margin-left: auto;
+  
 }
-div.col-sm-12 div.crowdrise:hover {
+div.col-sm-12 div.crowdrise a img:hover {
   cursor: pointer;
 }
 
 div.make-a-wish {
-  margin-top: 5px;
+   margin-top: 5px; 
 }
 .footer {
   background-color: #3d3d5c;
   color: #fff;
   text-align: center;
   padding: 20px 2px;
+    margin-top: -5px;  
 }
 
 div.col-lg-4 ul li{
@@ -397,10 +408,10 @@ div.col-lg-4 ul {
   margin-top: 40px;
 }
 .legal-stuff {
-  padding: 25px;
+  padding: 20px;
 }
 .privacy-policy {
-  margin-top: 25px;
+  margin-top: 15px;
 }
 @media (max-width: 1200px) {
     .strike {
@@ -410,9 +421,9 @@ div.col-lg-4 ul {
         white-space: nowrap; 
         font-size: 2.5em;
     }
-    .embed-responsive-16by9 {
+    /* .embed-responsive-16by9 {
     padding-bottom: 47% !important;
-}
+} */
 
     .strike > span {
         position: relative;
@@ -445,12 +456,44 @@ div.col-lg-4 ul {
   div#gamerules{
   display: inline-block;
 }
+div.crowdrise a img {
+  margin-top: -40px;
+  height: 190px;
+  width: 340px;
+  margin: 30px 0px 55px 0px; 
+}
+footer {
+  margin-top: -40px;
+}
+.youtube {
+  width: 110%;
+  height: auto;
+  margin-left: -15px;
+}
 }
 @media(min-width: 769px) and (max-width: 1199px) {
   .left-wing {
   background: url('../img/bgtest.png');
   padding-bottom: 105px;
   padding-top: 20px;
+  width: 101.6%
+}
+#join-game {
+  margin: 2px 200px;
+}
+
+div.crowdrise a img {
+  margin-top: -40px;
+  height: 190px;
+  width: 340px;
+  margin: 30px 0px auto 0px; 
+}
+footer {
+  margin-top: -27px;
+}
+.youtube {
+   width: 105%; 
+  height: 430px;
 }
 
 }
@@ -490,5 +533,29 @@ div.col-lg-4 ul {
 }
 .btn-danger:hover {
     border:  1px solid #cf6d17;
+  }
+  div.crowdrise a img {
+  margin-top: -40px;
+  height: 190px;
+  width: 340px;
+  margin: 20px 0px 50px 0px; 
+}
+.row {
+  margin-right: 0px !important;
+}
+.youtube {
+  width: 110%;
+  height: 330px;
+}
+}
+
+@media(min-width: 413px) and (max-width: 780px) {
+  .youtube {
+    width: 105%;
+  }
+}
+@media(min-width: 996px) and (max-width: 1198px) {
+  .youtube {
+    width: 214% !important;
   }
 }
