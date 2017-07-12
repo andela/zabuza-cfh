@@ -1,71 +1,84 @@
-<div id="main-bod" ng-controller="IndexController">
-  <!-- Fixed Logo & Menu Bar Start -->
-  <div id="top-part">
-    <div class="wpb-top-bar">
-      <div class="mod-contain" id="navver">
-        <div class="row">
-          <!-- Logo -->
-          <div class="wpb-logo-container">
-            <div id="landing-logo"> 
-              <span id="first-word">Cards</span>
-              <span id="second-word"> for</span> 
-              <span id="third-word">Humanity</span> 
-            </div> 
-            <div class="col-md-9 wpb-menu-container">
-              <ul class="wpb-main-menu">
-                <li><a href="/">Home</a></li>
+<div id="signupbg">
+  <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span id="collapsemenu">Menu</span>                       
+                </button>
+              <!--<a class="navbar-brand" href="#"></a>-->
+              </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
               </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href='/' class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Home</a></li>
+              </ul>
+    
             </div>
-          </div>      
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- Fixed Logo & Menu Bar End -->
-
-<!-- Landing Start -->
-<div class="wpb-teaser parallax-background" id="homer">
-  <div class="background-opacity"></div> 
-  <div class="modified-container">
-    <div class="row" id="main-text"> 
-    <!-- Teaser Text Start -->
-    <div id="landing-logo">
-      <h2 id="slogan">Sign in with:</h2>
-      <div id="login-buttons">
-        <a href="/auth/facebook"><img class="login-item" src="/img/icons/facebook.png"></a>
-        <a href="/auth/github"><img class="login-item" src="/img/icons/github.png"></a>
-        <a href="/auth/twitter"><img class="login-item" src="/img/icons/twitter.png"></a>
-        <a href="/auth/google"><img class="login-item" src="/img/icons/google.png"></a>
-      </div>
-      <p id="create">Or log in below:</p>
-
-      <div class="sign-body">
-        <div class="more-sign">
-          <div class="sign-error" ng-show="showError() === 'invalid'">
-            Please check your username/password and try again.
           </div>
-          <form class="signup form-horizontal" action="/users/session" method="post">
-            <div class="control-group">
-              <label for="email" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="email" type="text" name="email" placeholder="Email" required novalidate />
-              </div>
-            </div>
-            <div class="control-group">
-              <label for="password" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="password" type="password" name="password" placeholder="Password" required novalidate />
-              </div>
-            </div>
-            <div class="form-actions top-margin">
-              <button id="sign-up-btn-other" type='submit'>Sign In</button>
-            </div>
-          </form>
-        </div>
+        </nav>
+    <div class="login-page">
+      <center><h2 id="title">Sign in to Play</h2></center>
+      <br><br>
+      <div class="sign-error" ng-show="showError() === 'invalid'">
+        Please check your username/password and try again.
       </div>
-    </div>
-    </div>
+      <form class="form-horizontal" action="/users/session" method="post">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><i class=" glyphicon glyphicon-envelope"></i></span>
+            <input type="email" class="form-control input-lg" id="email" placeholder="Enter email" name="email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group"> 
+            <span class="input-group-addon"><i class="  glyphicon glyphicon-lock"></i></span>         
+            <input type="password" class="form-control input-lg" id="password" placeholder="Enter password" name="password" required>
+          </div>
+        </div>
+          <div id="contain-avatars">
+            <center><h3 id="title">select an avatar</h3></center>
+                  <div ng-controller="IndexController" class="avatar-list">
+                    <div class="col-md-2 single-avatar" ng-repeat="avatar in avatars" class="avatars ng-scope">
+                      <input name="avatar" type='radio' value="{{$index}}">
+                        <img ng-src="{{avatar}}">
+                      </input>
+                    </div>
+                  </div>
+                </div>
+        <div class="form-group" id="signupbtn">        
+          <div class="col-sm-12 btnmargin">
+            <center><button type="submit" class="btn btn-warning btn-lg">Sign into your Account</button></center>
+          </div>
+        </div>
+      </form>
+      <br>
+       <center>Connect to your social accounts</center>
+      <hr>
+     <div class="row">
+<div class="col-md-3">
+<a  href="/auth/twitter" class="btn btn-social-icon btn-twitter">
+  <span class="fa fa-twitter"></span>
+</a>
+</div>
+<div class="col-md-3">
+<a  href="/auth/facebook" class="btn btn-social-icon btn-facebook">
+  <span class="fa fa-facebook"></span>
+</a>
+</div>
+<div class="col-md-3">
+<a href="/auth/google" class="btn btn-social-icon btn-google">
+  <span class="fa fa-google"></span>
+</a>
+</div>
+<div class="col-md-3">
+<a  href="/auth/github" class="btn btn-social-icon btn-github">
+  <span class="fa fa-github"></span>
+</a>
+</div>
+</div>
     </div>
   </div>
-</div>
 
+</div>
