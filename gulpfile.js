@@ -40,6 +40,11 @@ gulp.task('font-awesome', () => {
     .pipe(gulp.dest('public/lib/font-awesome'));
 });
 
+gulp.task('bootstrap-social', () => {
+  gulp.src('bower_components/bootstrap-social/**/*')
+    .pipe(gulp.dest('public/lib/bootstrap-social'));
+});
+
 
 gulp.task('angular-bootstrap', () => {
   gulp.src('bower_components/angular-bootstrap/**/*')
@@ -106,5 +111,5 @@ gulp.task('mochaTest', () => {
 
 gulp.task('test', ['mochaTest']);
 gulp.task('install', ['bower']);
-gulp.task('production', ['bower', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-bootstrap', 'angular-cookies', 'angular-route', 'angular-resource', 'font-awesome']);
+gulp.task('production', ['bower', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-bootstrap', 'angular-cookies', 'angular-route', 'angular-resource', 'font-awesome', 'bootstrap-social']);
 gulp.task('default', ['nodemon', 'watch', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-bootstrap', 'angular-cookies', 'angular-route', 'angular-resource']);
