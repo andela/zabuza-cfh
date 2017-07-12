@@ -22,6 +22,8 @@ body {
 }
 
 
+
+
 #navbar .scrolled {
     background: rgb(68, 68, 68);
     background: rgba(0, 0, 0, 0.78);
@@ -91,7 +93,7 @@ body {
         position: relative;
         display: inline-block;
     }
-	
+  
     .strike > span:before,
     .strike > span:after {
         content: "";
@@ -231,10 +233,65 @@ a.friends-btn {
   color: #fff;
   margin: 2px 50px;
 }
+#title{
+  font-family: 'Lobster';
+}
+#signupbg{
+  background-color: #fff;
+  
+}
+.single-avatar img {
+  width: 40px;
+}
+.btnmargin{
+  margin-top: 20px;
+}
+#signup{
+  margin-left: 10%;
+    margin-right: 10%;
+}
+#signupbg{
+  background: url('../img/Header2.png') no-repeat center center fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+.form-control::-webkit-input-placeholder { color: orange; font-family: 'Lobster'; font-size: 24px; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: orange; font-family: 'Lobster'; font-size: 24px;}  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: orange; font-family: 'Lobster'; font-size: 24px;}  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: orange; font-family: 'Lobster';  font-size: 24px;}  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: orange; font-family: 'Lobster'; font-size: 24px;} 
+
+input[type=text] {
+color: orange; font-family: 'Lobster'; font-size: 24px;
+}
+input[type=email] {
+color: orange; font-family: 'Lobster'; font-size: 24px;
+}
+input[type=password] {
+color: orange; font-family: 'Lobster'; font-size: 24px;
+}
+#contain-avatars{
+  margin-top: 5%;
+}
+
+#contain-avatars li{
+  display: inline;
+}
 
 #join-game:hover {
   opacity: 0.5;
   transition-duration: 0.5s;
+}
+
+.login-page {
+  background: #fff;
+  color: #f0ad4e;
+  padding: 10px 3em;
+  margin: 0px auto;
+  max-width: 500px;
 }
 
 #facebook-share{
@@ -375,7 +432,7 @@ strong {
         position: relative;
         display: inline-block;
     }
-	
+  
     .strike > span:before,
     .strike > span:after {
         content: "";
