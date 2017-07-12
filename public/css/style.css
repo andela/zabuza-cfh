@@ -554,6 +554,11 @@ footer {
     width: 105%;
   }
 }
+@media(min-width: 400px) {
+  .youtube {
+    width: 107.7%;
+  }
+}
 @media(min-width: 996px) and (max-width: 1198px) {
   .youtube {
     width: 214% !important;
