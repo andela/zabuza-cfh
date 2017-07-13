@@ -71,6 +71,8 @@ body {
   }
 
 
+
+
 #navbar .scrolled {
     background: rgb(68, 68, 68);
     background: rgba(0, 0, 0, 0.78);
@@ -164,7 +166,7 @@ div#right a:hover, div#left a:hover {
         position: relative;
         display: inline-block;
     }
-	
+  
     .strike > span:before,
     .strike > span:after {
         content: "";
@@ -308,10 +310,57 @@ a.friends-btn {
   color: #fff;
   margin: 2px 300px;
 }
+#title{
+  font-family: 'Lobster';
+  font-size: 25px;
+}
+.title {
+  font-family: 'Lobster';
+  font-size: 25px;
+  margin-left: 130px;
+}
+#signupbg{
+  background-color: #fff;
+  
+}
+.single-avatar img {
+  width: 40px;
+}
+.btnmargin{
+  margin-top: 20px;
+}
+#signup{
+  margin-left: 10%;
+    margin-right: 10%;
+}
+#signupbg{
+  background: url('../img/Header2.png') no-repeat center center fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+#contain-avatars{
+  margin-top: 5%;
+}
+
+#contain-avatars li{
+  display: inline;
+}
 
 #join-game:hover {
   opacity: 0.7;
   transition-duration: 0.5s;
+}
+
+.login-page {
+  background: #fff;
+  color: #f0ad4e;
+  padding: 10px 3em;
+  margin: 0px auto;
+  max-width: 500px;
 }
 
 #facebook-share{
@@ -483,7 +532,7 @@ div.col-lg-4 ul {
         position: relative;
         display: inline-block;
     }
-	
+  
     .strike > span:before,
     .strike > span:after {
         content: "";
