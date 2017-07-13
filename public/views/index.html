@@ -1,14 +1,4 @@
-
-<script>
-       var angle = 0;
-function galleryspin(sign) { 
-spinner = document.querySelector("#spinner");
-if (!sign) { angle = angle - 45; } else { angle = angle + 45; }
-spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-transform: rotateY("+ angle +"deg); transform: rotateY("+ angle +"deg);");
-}
-
- </script>
-     
+ 
 <!-- Landing Start -->
 <div landing class="container-fluid">
         <div class ="container-fluid">
@@ -23,14 +13,14 @@ spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-t
               </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" onClick="scroll(0,742);" class="btn btn-danger">How to Play</a></li> 
-                <li ng-hide="showOptions"><a href="/signout">Sign Out</a></li></span>
-                <li><a onClick="scroll(0,1411);">Donate</a></li>
+                <li><a href="#" onClick="scroll(0,742);" class="btn btn-dange">How to Play</a></li> 
+                <li ng-hide="showOptions"><a href="/signout"></i>Sign Out</a></li></span>
+                <li><a onClick="scroll(0,1711);">Donate</a></li>
               </ul>
 
               <ul class="nav navbar-nav navbar-right" ng-show="showOptions">
-                <li><a href='#!/signin' class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <li><a href='#!/signup'><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href='#!/signin' class="btn btn-primary"> Login</a></li>
+                <li><a href='#!/signup'> Sign Up </a></li>
               </ul>
     
             </div>
@@ -59,7 +49,7 @@ spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-t
           </div>
           <div id="rules">
             <div id="left"> 
-              <span onclick="galleryspin('-')"><img src="../img/back.png" alt="back" /></span> 
+              <span onClick="galleryspin('-')"><a><i class="fa fa-angle-left fa-5x" aria-hidden="true"></i></a></span> 
             </div>
       <div id="carousel">
         <figure id="spinner">
@@ -74,7 +64,7 @@ spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-t
         </figure>
       </div>
         <div id="right">
-          <span  onclick="galleryspin('')"><img src="../img/forward.png" alt="forward" /></span>
+          <span  onclick="galleryspin('')"><a><i class="fa fa-angle-right fa-5x" aria-hidden="true"></i></a></span>
         </div>
           </div>
   </div>
@@ -87,16 +77,16 @@ spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-t
             <span>How to Play</span>
     </div>
   <div class="col-md-3 col-sm-6 col-xs-6">
-     <img src="../img/Rule1.png" alt="rules" class="rules">
+     <img src="../img/Rule1.png" alt="rules" class="rules img-responsive">
     </div>
      <div class="col-md-3 col-sm-6 col-xs-6">
-       <img src="../img/Rule2.png" alt="rules" class="rules">
+       <img src="../img/Rule2.png" alt="rules" class="rules img-responsive">
     </div>
       <div class="col-md-3 col-sm-6 col-xs-6">
-        <img src="../img/Rule3.png" alt="rules" class="rules">
+        <img src="../img/Rule3.png" alt="rules" class="rules img-responsive">
     </div>
       <div class="col-md-3 col-sm-6 col-xs-6">
-         <img src="../img/Rule4.png" alt="rules" class="rules">
+         <img src="../img/Rule4.png" alt="rules" class="rules img-responsive">
     </div> 
   </div>
 <!--- AlternativeRules -->
@@ -177,7 +167,7 @@ spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-t
             <h4 class="team-name">Seun Adekunle</h4>
           </div>
           <div class="col-xs-6 col-sm-4 col-md-2">
-            <img src="../img/vanessa.jpg" alt="image-3" class="team-img" />
+            <img src="../img/vanessaa.png" alt="image-3" class="team-img" />
             <h4 class="team-name">Vanessa Ejikeme</h4>
           </div>
           <div class="col-xs-6 col-sm-4 col-md-2">
@@ -202,8 +192,7 @@ spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-t
         <div class="row">
           <div class="col-sm-12 col-md-8">
             <div class="crowdrise">
-              <a href="http://www.crowdrise.com/cfhio/fundraiser/cards4humanity" id="crowdriseStaticLink-fundraiser-121142" title="Fundraising Websites on Crowdrise">Fundraising Websites - Crowdrise</a>
-              <script type="text/javascript" src="https://www.crowdrise.com/widgets/donate/fundraiser/121142/?callback=userDonationCb"></script>
+              <a href="https://www.crowdrise.com/donate/project/cfhio/cards4humanity/0" id="crowdriseStaticLink-fundraiser-121142" title="Fundraising Websites on Crowdrise" target="__blank"><img src="../img/widget.png" alt="widget" class="img-responsive"/></a>
             </div>
           </div>
             <div class="col-sm-12 col-md-4 make-a-wish">
@@ -212,14 +201,22 @@ spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-t
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-6 embed-responsive embed-responsive-16by9">
-      <iframe src="https://www.youtube.com/embed/LoEyd6_jztc"></iframe>
+    <div class="col-sm-12 col-md-6">
+      <iframe src="https://www.youtube.com/embed/LoEyd6_jztc" frameborder="0" allowfullscreen class="youtube" id="iframes"></iframe>
     </div>
   </div>
 </div>
 <div class="container-fluid footer">
   <div class="row">
-    <div class="col-sm-12 col-md-4 col-lg-4">
+    <div class="col-sm-12 col-md-4 col-lg-4 privacy-policy">
+      <p>&copy;Cards for Humanity, All right reserved. </br> Designed by Team Zabuza Class 27.</p>
+      <p><i class="fa fa-github fa-2x" aria-hidden="true"></i> PRIVACY POLICY</p>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4 legal-stuff">
+      <h4>Legal stuff</h4> 
+      <p>This game is based on the card for humanity card game. Which is CC licensed(BY-NC-SA). Cards for Humanity is not affiliated with Cards Against Humanity In complying with the Creative Commons license of the Cards Against Humanity card game, all proceeds from donations go directly to charity, as managed by crowdrise.</p>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4 list-link">
         <ul>
             <li><a onClick="scroll(0,0);">Home</a></li>
             <li><a onClick="scroll(0,742);">How to play</a></li>
@@ -228,13 +225,5 @@ spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-t
             <li><a onClick="scroll(0,0);">Back to top <i class="fa fa-angle-up" aria-hidden="true"></i></a></li>
         </ul>
   </div>
-    <div class="col-sm-12 col-md-4 col-lg-4">
-      <p><strong>Legal stuff:</strong> This game is based on the card for humanity card game. Which is CC licensed(BY-NC-SA). Cards for Humanity is not affiliated with Cards Against Humanity In complying with the Creative Commons license of the Cards Against Humanity card game, all proceeds from donations go directly to charity, as managed by crowdrise.</p>
-    </div>
-    <hr class="hidden-md">
-    <div class="col-sm-12 col-md-4 col-lg-4">
-      <p>&copy;Cards for Humanity, All right reserved. </br> Designed by Team Zabuza Class 27.</p>
-      <p><i class="fa fa-github fa-2x" aria-hidden="true"></i> PRIVACY POLICY</p>
-    </div>
 </div>
 </div>
