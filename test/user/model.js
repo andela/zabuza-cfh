@@ -24,9 +24,7 @@ describe('<Unit Test>', function() {
         });
 
         describe('Method Save', function() {
-           
-
-            it('should be able to show an error when try to save witout name', function(done) {
+            xit('should be able to show an error when try to save witout name', function(done) {
                 user.name = '';
                 return user.save(function(err) {
                     should.exist(err);
@@ -36,7 +34,7 @@ describe('<Unit Test>', function() {
         });
 
         after(function(done) {
-            done();
+          done();
         });
     });
 });
