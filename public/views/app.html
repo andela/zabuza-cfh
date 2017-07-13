@@ -1,5 +1,5 @@
 </script>
-<div id="app-container" ng-controller="GameController">
+<div class="row" id="app-container" ng-controller="GameController">
   <div id="menu-container">
     <div id="logo">
       <span id="first-word">Cards</span>
@@ -28,6 +28,29 @@
         <question></question>
       </div>
     </div>
-    <answers></answers>
+    <div>
+      <answers></answers>
+    </div>
+    <section class="col-md-offset-12 col-md-4">
+      <aside>
+        <div class="chatbox">
+          <div class="chat-header">
+            <h5>ChatBox<span id="chatCount"></span>
+              <fa class="fa-chevron-down fa" id="endChat"></fa>
+              <fa class="fa-chevron-up fa" id="startChat"></fa>
+            </h5>
+          </div>
+          <div class="chat-content" id="chatContent">
+            <div id="chatInner" chatbox>
+              <div class="chat-begin">This is the beginning of the game's chat</div>
+            </div>
+          </div>
+          <div class="input-field message-area">
+            <input type="text" class="form-control" id="chatInput" placeholder="Type a message and press enter...">
+          </div>
+        </div>
+      </aside>
+    </section>
   </div>
 </div>
+
