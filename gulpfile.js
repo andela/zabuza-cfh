@@ -106,5 +106,5 @@ gulp.task('mochaTest', () => {
 
 gulp.task('test', ['mochaTest']);
 gulp.task('install', ['bower']);
-gulp.task('production', ['bower', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-animate', 'angular-bootstrap', 'angular-cookies', 'angular-route', 'angular-resource', 'font-awesome']);
-gulp.task('default', ['nodemon', 'watch', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-animate', 'angular-bootstrap', 'angular-cookies', 'angular-route', 'angular-resource']);
+gulp.task('production', ['bower', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-bootstrap', 'angular-cookies', 'angular-route', 'angular-resource', 'font-awesome']);
+gulp.task('default', ['nodemon', 'watch', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-bootstrap', 'angular-cookies', 'angular-route', 'angular-resource']);
