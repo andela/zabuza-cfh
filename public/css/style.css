@@ -35,8 +35,13 @@ body {
 }
 .nav li a{
   height: 40px;
-  padding-top: 10px;
-  margin-left: 5px;
+  padding-top: 8px;
+  padding-bottom: 6px;
+  margin-left: 8px;
+  margin-right: 8px;
+  font-size: 15px;
+  margin-top: 20px;
+
 }
 .nav li a:hover {
   opacity: 0.6;
@@ -90,6 +95,9 @@ body {
   text-align: center;
    padding-top: 15%;
 }
+  .fa-angle-left, .fa-angle-right {
+    color: #000 !important;
+  }
 
 div#right a:hover, div#left a:hover {
   cursor: pointer;
@@ -301,7 +309,7 @@ a.friends-btn {
   margin-top: 60px;
 }
 
-  .btn-danger {
+  .btn-dange {
     background-color:#e67e22;
     border: #e67e22;
     border: 1px solid #e67e22;
@@ -314,17 +322,18 @@ a.friends-btn {
   background-color: #000;
   color: #fff;
   text-align: center;
-  font-family: 'Lobster' !important;
   padding-top: 20px;
   padding-bottom: 60px;
   margin-top: 10px;
 }
 .team-name {
   padding-top: 10px;
+  font-family: 'Lobster', 'sans-serif' !important;
 }
 
 .meet-the-team h2 {
-  padding-bottom: 60px;
+  padding-bottom: 40px;
+  font-family: 'Lobster', 'sans-serif' !important;
 }
 .team-img {
   margin: auto;
@@ -358,9 +367,7 @@ div.make-impact p {
   text-align: left;
   line-height: 30px;
 }
-/* .embed-responsive-16by9 {
-    padding-bottom: 34.1% !important;
-} */
+
  div.crowdrise a img {
   margin-top: -40px;
   height: 190px;
@@ -383,35 +390,37 @@ div.make-a-wish {
   background-color: #3d3d5c;
   color: #fff;
   text-align: center;
-  padding: 20px 2px;
-    margin-top: -5px;  
+  padding: 5px 2px;
+  margin-top: -5px;  
 }
 
-div.col-lg-4 ul li{
-  display: inline;
-  padding: 5px 4px;
-}
 div.col-lg-4 ul {
-  margin-left: -20px;
+  margin-left: -15px;
 }
 
-div.col-lg-4 ul li:hover {
-  border-bottom: 2px solid #fff;
-  cursor: pointer;
-  color: aquamarine !important;
-}
-div.col-lg-4 ul li a{
-  text-decoration: none;
-  color: #fff;
-}
-div.col-lg-4 ul {
+.list-link ul {
   margin-top: 40px;
 }
+
+.list-link ul li {
+  display: inline;
+}
+
+.list-link ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 4px;
+}
+
+.list-link ul li a:hover {
+  border-bottom: 2px solid #e67e22;
+  cursor: pointer;
+}
 .legal-stuff {
-  padding: 20px;
+  padding: 5px;
 }
 .privacy-policy {
-  margin-top: 15px;
+  margin-top: 43px;
 }
 @media (max-width: 1200px) {
     .strike {
@@ -421,9 +430,6 @@ div.col-lg-4 ul {
         white-space: nowrap; 
         font-size: 2.5em;
     }
-    /* .embed-responsive-16by9 {
-    padding-bottom: 47% !important;
-} */
 
     .strike > span {
         position: relative;
@@ -509,7 +515,7 @@ footer {
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header{
     border: transparent ! important;
   }
-  .btn-danger{
+  .btn-dange{
     background-color:#e67e22;
     border: #e67e22;
   }
@@ -531,7 +537,7 @@ footer {
 #cfh{
     font-size: 3em;
 }
-.btn-danger:hover {
+.btn-dange:hover {
     border:  1px solid #cf6d17;
   }
   div.crowdrise a img {
@@ -553,6 +559,9 @@ footer {
   .youtube {
     width: 105%;
   }
+  div.col-lg-4 ul {
+  padding-bottom: 20px !important;
+}
 }
 @media(min-width: 400px) {
   .youtube {
