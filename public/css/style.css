@@ -5,6 +5,68 @@ body {
   margin: 0px;
   padding: 0px;
   height: 100%;
+  background: url('../img/Header2.png') no-repeat center center fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  width: 100%;
+}
+html{
+  background: transparent;
+}
+.login-page {
+  background: #fff;
+  color: #f0ad4e;
+  padding: 10px 3em;
+  max-width: 500px;
+  margin : 40px auto;
+ 
+  
+}
+#how-to-play{
+  background-color: white;
+}
+#title{
+  font-family: 'Lobster';
+  font-size: 25px;
+  margin-left: 20px;
+}
+.title {
+  font-family: 'Lobster';
+  font-size: 25px;
+  margin-left: 120px;
+}
+.fa{
+  transition: 0.5s;
+  color:#f0ad4e;
+  font-size: 100px;
+}
+.socialbtn{
+  font-size: 20px;
+}
+
+p.account{
+color: #000;
+}
+.account a{
+  color: #f0ad4e;
+}
+.homelink a{
+  color: #f0ad4e;
+}
+.btn-lg{
+  transition:0.5s;
+}
+.home {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.single-avatar img {
+  width: 40px;
+}
+.btnmargin{
+  margin-top: 20px;
 }
 
 #nav-bar{
@@ -24,7 +86,6 @@ body {
   .row {
     margin-right: 15px !important;
   }
-
 
 #navbar .scrolled {
     background: rgb(68, 68, 68);
@@ -119,7 +180,7 @@ div#right a:hover, div#left a:hover {
         position: relative;
         display: inline-block;
     }
-	
+  
     .strike > span:before,
     .strike > span:after {
         content: "";
@@ -262,6 +323,45 @@ a.friends-btn {
   background-color: #cf6d17;
   color: #fff;
   margin: 2px 300px;
+}
+#title{
+  font-family: 'Lobster';
+  font-size: 25px;
+}
+.title {
+  font-family: 'Lobster';
+  font-size: 25px;
+  margin-left: 130px;
+}
+#signupbg{
+  background-color: #fff;
+  
+}
+.single-avatar img {
+  width: 40px;
+}
+.btnmargin{
+  margin-top: 20px;
+}
+#signup{
+  margin-left: 10%;
+    margin-right: 10%;
+}
+#signupbg{
+  background: url('../img/Header2.png') no-repeat center center fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+#contain-avatars{
+  margin-top: 5%;
+}
+
+#contain-avatars li{
+  display: inline;
 }
 
 #join-game:hover {
@@ -431,12 +531,14 @@ div.col-lg-4 ul {
         white-space: nowrap; 
         font-size: 2.5em;
     }
-
+.btnmargin{
+  margin-top: 20px;
+}
     .strike > span {
         position: relative;
         display: inline-block;
     }
-	
+  
     .strike > span:before,
     .strike > span:after {
         content: "";
@@ -460,6 +562,7 @@ div.col-lg-4 ul {
   .how-to-play {
     display: none;
   }
+
   div#gamerules{
   display: inline-block;
 }
@@ -488,6 +591,9 @@ footer {
 #join-game {
   margin: 2px 200px;
 }
+.btnmargin{
+  margin-top: 20px;
+}
 
 div.crowdrise a img {
   margin-top: -40px;
@@ -509,10 +615,15 @@ footer {
   .btn{
     margin-left: 15px ! important;
      margin-right: 15px ! important;
+       margin-top: 20px ! important;
+  }
+    .socialbtn{
+    margin: -5px;
   }
   .nav li a{
     text-align: center ! important;
   }
+
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header{
     border: transparent ! important;
   }
@@ -560,17 +671,29 @@ footer {
   .youtube {
     width: 105%;
   }
+  .socialbtn{
+    font-size: 15px;
+  }
   div.col-lg-4 ul {
   padding-bottom: 20px !important;
+}
+.btnmargin{
+  margin-top: 20px;
 }
 }
 @media(min-width: 400px) {
   .youtube {
     width: 107.7%;
   }
+  .btnmargin{
+  margin-top: 20px;
+}
 }
 @media(min-width: 996px) and (max-width: 1198px) {
   .youtube {
     width: 214% !important;
   }
+  .btnmargin{
+  margin-top: 20px;
+}
 }
