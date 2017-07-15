@@ -324,6 +324,7 @@ a.friends-btn {
   background-color: #cf6d17;
   color: #fff;
   margin: 2px 300px;
+
 }
 #title{
   font-family: 'Lobster';
@@ -363,6 +364,7 @@ a.friends-btn {
 
 #contain-avatars li{
   display: inline;
+
 }
 
 #join-game:hover {
@@ -521,6 +523,7 @@ div.col-lg-4 ul {
 .legal-stuff {
   padding: 5px;
 }
+
 .privacy-policy {
   margin-top: 43px;
 }
@@ -595,6 +598,7 @@ footer {
 .btnmargin{
   margin-top: 20px;
 }
+
 
 div.crowdrise a img {
   margin-top: -40px;
@@ -672,6 +676,7 @@ footer {
   .youtube {
     width: 105%;
   }
+
   .socialbtn{
     font-size: 15px;
   }
@@ -686,9 +691,11 @@ footer {
   .youtube {
     width: 107.7%;
   }
+
   .btnmargin{
   margin-top: 20px;
 }
+
 }
 @media(min-width: 996px) and (max-width: 1198px) {
   .youtube {
@@ -698,3 +705,4 @@ footer {
   margin-top: 20px;
 }
 }
+
