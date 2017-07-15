@@ -117,6 +117,37 @@ exports.create = function (req, res, next) {
   }
 };
 
+exports.login = function (req, res, next) {
+  if (req.body.password && req.body.email) {
+    User.findOne({
+      email: req.body.email
+    }).exec((err, existingUser) => {
+      if (err) {
+        return res.status(400).json({ success: false, message: 'Error trying to log user in' });
+      }
+      if (!existingUser) {
+        return res.status(400).json({ success: false, message: 'User does not exist' });
+      }
+      const password = req.body.password;
+      if (bcrypt.compareSync(password, existingUser.hashed_password)) {
+        req.logIn(existingUser, (err) => {
+          if (err) return res.status(400).json({ success: false, message: 'User does not exist' });
+          const token = jwt.sign(existingUser, config.secret, {
+            expiresIn: 10080 // in seconds
+          });
+          // return res.redirect('/#!/');
+          res.status(200).json({ success: true, token: `JWT ${token}` });
+        });
+      } else {
+        res.status(401).json({ success: false, message: 'Wrong email or password' });
+      }
+    });
+  } else {
+    // return res.redirect('/#!/signup?error=incomplete');
+    res.status(400).json({ success: false, message: 'You must enter all field' });
+  }
+};
+
 /**
  * Assign avatar to user
  */

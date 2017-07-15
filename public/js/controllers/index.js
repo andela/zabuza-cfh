@@ -36,4 +36,18 @@ angular.module('mean.system')
           $scope.showMessage = `${status} : ${error}`;
         });
     };
+
+    $scope.signIn = function () {
+      $http.post('api/auth/login', JSON.stringify($scope.formData))
+        .success((data) => {
+          if (data.success === true) {
+            $window.localStorage.setItem('user-token', data.token);
+            $window.location.href = '/';
+          } else {
+            $scope.showMessage = data.message;
+          }
+        }).error(function (error, status) {
+          $scope.showMessage = 'wrong email or password';
+        });
+    };
   }]);
