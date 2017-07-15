@@ -11,7 +11,7 @@
     "angular-route": "1.2.0",
     "angular-cookies": "1.2.0",
     "angular-resource": "1.2.0",
-    "angular": "1.2.0",
+    "angular": "1.4.0",
     "font-awesome": "^4.7.0",
     "intro.js": "^2.5.0",
     "angular-intro.js": "^3.3.0"
@@ -25,5 +25,8 @@
     "angular-ui-utils": {
       "modules": "modules/route/route.js"
     }
+  },
+  "resolutions": {
+    "angular": "1.2.0"
   }
 }
