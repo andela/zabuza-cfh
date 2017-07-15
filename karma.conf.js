@@ -29,6 +29,7 @@ module.exports = function(config) {
     preprocessors: {
     },
 
+    // plugins: [''],
 
     // test results reporter to use
     // possible values: 'dots', 'progress'

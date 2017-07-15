@@ -9,4 +9,8 @@ describe('Dummy tests', () => {
     const f = 5 * 3;
     expect(f).toBe(15);
   });
+
+  it('should test the boolean `true` to be truthy', () => {
+    expect(true).toBeTruthy();
+  });
 });
