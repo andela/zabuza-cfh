@@ -91,4 +91,7 @@ module.exports = function (app, passport, auth) {
     app.get('/play', index.play);
     app.get('/', index.render);
 
+  // Intro route
+  app.get('/gametour', index.gameTour);
+
 };
