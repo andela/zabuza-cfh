@@ -1,10 +1,11 @@
 </script>
+
 <div class="row" id="app-container" ng-controller="GameController">
-  <div id="menu-container">
+  <div id="menu-container" ng-controller="GameTourController">
     <div id="logo">
       <span id="first-word">Cards</span>
       <span id="second-word"> for</span>
-      <span id="third-word">Humanity</span>
+      <span id="third-word">Humanity</span> 
     </div>
     <div id = 'abandon-game-button' ng-click="abandonGame()">
         Abandon Game
@@ -28,8 +29,9 @@
         <question></question>
       </div>
     </div>
-    <div>
-      <answers></answers>
+    <div id="rules">
+      <answers>
+      </answers>
     </div>
     <section class="col-md-offset-11 col-md-4" style="padding-top: 10%">
       <aside>

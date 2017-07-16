@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+chatbox {
+  width: 300px;
+  position: fixed;
+  background-color: #fff;
+  border: 1px solid #fff;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1003;
+  padding-top: 15%;
+  padding-bottom: 0;
+  margin-bottom: 0px;
+}
+.chatbox .chat-header {
+  background-color: #F34444;
+  border-radius: 5px;
+  padding: 6px 15px;
+  color: #fff;
+  height: 60px;
+  max-height: 70px;
+}
+.chatbox .chat-header h5 {
+  padding-top: 12px;
+  font-family: Lobster;
+  margin: 0;
+}
+.chatbox .chat-header .fa {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+}
+.chatbox .chat-header .fa-chevron-down {
+  display: none;
+}
+.chatbox .chat-content {
+  padding: 15px 5px;
+  max-height: 150px;
+  overflow: auto;
+  display: none;
+}
+.chatbox .chat .chat-meta {
+  display: block;
+  margin-left: 5px;
+  font-size: 14px;
+}
+.chatbox .chat .chat-meta img {
+  float: left;
+  width: 50px;
+  margin-right: 15px;
+}
+.chatbox .chat .chat-message {
+  display: inline-block;
+  margin: 5px 0px 20px 20px;
+  background-color: #e6e6e6;
+  padding: 5px;
+}
+.chatbox .chat-header .fa-chevron-down,
+.chatbox .chat-header .fa-chevron-up {
+  float: right;
+  font-size: 18px;
+  cursor: pointer;
+}
+ #chatInner .emojioneemoji{
+   width: 25px;
+ }
+ .send-message {
+    padding-bottom: 5px;
+ }
+ .chatbox .chat-begin{
+   font-size: 14px;
+   color: #bbb;
+   margin-bottom: 6px;
+  margin-left: 6px;
+  position: relative;
+  bottom: 10px;
+}
+
+.chatbox .chat-header .fa-chevron-down {
+  display: none;
+}
+.chatbox .chat .chat-message {
+  display: inline-block;
+  margin: 0px 0px 20px 20px;
+  background-color: #fff;
+  padding: 5px;
+}
+.chat-message{
+  margin-left: 0px !important;
+}
+#chatCount{
+  background-color:#EA212E;
+  font-size: 8px;
+  color: white;
+  border-radius: 100%;
+  padding: 5px;
+  display: none;
+ }
+
+#chatInput{
+  background-color: #f1f1f1 !important;
+  padding: 0px 1px !important;
+  min-height: 50px;
+}
