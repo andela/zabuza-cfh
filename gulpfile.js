@@ -30,7 +30,7 @@ gulp.task('angular-intro', () => {
     .pipe(gulp.dest('public/lib/angular-intro.js'));
 });
 gulp.task('intro', () => {
-  gulp.src('bower_components/intro.js/**/*.js')
+  gulp.src('bower_components/intro.js/**/*')
     .pipe(gulp.dest('public/lib/intro.js'));
 });
 
