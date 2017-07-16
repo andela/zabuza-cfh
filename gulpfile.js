@@ -20,24 +20,16 @@ gulp.task('angular', () => {
   gulp.src('bower_components/angular/**/*.js')
     .pipe(gulp.dest('public/lib/angular'));
 });
-
 gulp.task('angular-cookies', () => {
   gulp.src('bower_components/angular-cookies/**/*.js')
     .pipe(gulp.dest('public/lib/angular-cookies'));
-});
-gulp.task('angular-intro', () => {
-  gulp.src('bower_components/angular-intro.js/**/*.js')
-    .pipe(gulp.dest('public/lib/angular-intro.js'));
-});
-gulp.task('intro', () => {
-  gulp.src('bower_components/intro.js/**/*.js')
-    .pipe(gulp.dest('public/lib/intro.js'));
 });
 
 gulp.task('angular-route', () => {
   gulp.src('bower_components/angular-route/**/*.js')
     .pipe(gulp.dest('public/lib/angular-route'));
 });
+
 gulp.task('angular-resource', () => {
   gulp.src('bower_components/angular-resource/**/*.js')
     .pipe(gulp.dest('public/lib/angular-resource'));
@@ -114,5 +106,5 @@ gulp.task('mochaTest', () => {
 
 gulp.task('test', ['mochaTest']);
 gulp.task('install', ['bower']);
-gulp.task('production', ['bower', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-bootstrap', 'angular-cookies', 'angular-route', 'angular-resource', 'font-awesome', 'intro', 'angular-intro']);
+gulp.task('production', ['bower', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-bootstrap', 'angular-cookies', 'angular-route', 'angular-resource', 'font-awesome']);
 gulp.task('default', ['nodemon', 'watch', 'sass', 'angular', 'bootstrap', 'jquery', 'underscore', 'angularUtils', 'angular-bootstrap', 'angular-cookies', 'angular-route', 'angular-resource']);

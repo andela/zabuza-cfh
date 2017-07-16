@@ -1,4 +1,3 @@
-const firebase = require('firebase');
 var Game = require('./game');
 var Player = require('./player');
 require("console-stamp")(console, "m/dd HH:MM:ss");
@@ -9,17 +8,7 @@ var avatars = require(__dirname + '/../../app/controllers/avatars.js').all();
 // Valid characters to use to generate random private game IDs
 var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
 
-const config = {
-  apiKey: "AIzaSyBFFrkIeV7zntal9QTkB9tahHBSF_pvu3E",
-  authDomain: "cardsforhumanity-8c6ed.firebaseapp.com",
-  databaseURL: "https://cardsforhumanity-8c6ed.firebaseio.com",
-  projectId: "cardsforhumanity-8c6ed",
-  storageBucket: "cardsforhumanity-8c6ed.appspot.com",
-  messagingSenderId: "104798842401"
-};
-firebase.initializeApp(config);
-
-module.exports = (io) => {
+module.exports = function(io) {
 
   var game;
   var allGames = {};
@@ -27,23 +16,9 @@ module.exports = (io) => {
   var gamesNeedingPlayers = [];
   var gameID = 0;
 
-  const onlineUsers = [];
-  let chatMessages = [];
-
-  const database = firebase.database();
-
   io.sockets.on('connection', function (socket) {
     console.log(socket.id +  ' Connected');
     socket.emit('id', {id: socket.id});
-
-    socket.on('chat message', (chat) => {
-      io.sockets.in(socket.gameID).emit('chat message', chat);
-      socket.emit('onlineUsers', onlineUsers);
-      chatMessages.push(chat);
-      database.ref(`chat/${socket.gameID}`).set(chatMessages);
-    });
-
-    socket.emit('initializeChat', chatMessages);
 
     socket.on('pickCards', function(data) {
       console.log(socket.id,"picked",data);
