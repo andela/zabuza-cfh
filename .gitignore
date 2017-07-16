@@ -4,6 +4,5 @@ node_modules
 c4h_keys.txt
 .env
 coverage
-public/lib
 bower_components
 package-lock.json
