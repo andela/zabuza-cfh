@@ -28,13 +28,6 @@ angular.module('mean.system')
       }
     };
 
-    $scope.saveGameUser = function() {
-      if($scope.game.players) {
-        window.localStorage.setItem('username', $scope.game.players[0]);
-        window.localStorage.setItem('avatar', $scope.game.players[0].avatar);
-      }
-    };
-
     $scope.pointerCursorStyle = function() {
       if ($scope.isCzar() && $scope.game.state === 'waiting for czar to decide') {
         return {'cursor': 'pointer'};
@@ -93,10 +86,6 @@ angular.module('mean.system')
     };
 
     $scope.isPlayer = function($index) {
-      if ($index === 0) {
-        window.localStorage.setItem('username', $scope.game.players[0].username);
-        window.localStorage.setItem('avatar', $scope.game.players[0].avatar);
-      }
       return $index === game.playerIndex;
     };
 

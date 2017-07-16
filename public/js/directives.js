@@ -65,8 +65,7 @@ angular.module('mean.directives', [])
       templateUrl: '/views/timer.html',
       link: function(scope, elem, attr){}
     };
-  })
-  .directive('landing', function() {
+  }).directive('landing', function() {
     return {
       restrict: 'EA',
       link: function(scope, elem, attr) {
@@ -77,64 +76,4 @@ angular.module('mean.directives', [])
         }
       }
     };
-  })
-  .directive('chatbox', ['socket', socket => ({
-    restrict: 'AE',
-    replace: true,
-    link: (scope, element) => {
-       // Send chat message
-      scope.sendChatMessage = () => {
-        const chat = {};
-        chat.message = $('#chatInput').val();
-        if (!chat.message) return;
-        chat.date = new Date().toString();
-        chat.avatar = window.localStorage.getItem('avatar');
-        chat.username = window.localStorage.getItem('username');
-        socket.emit('chat message', chat);
-        $('#chatInput').val('');
-      };
-
-      // display a chat message
-      const displayChat = (chat) => {
-        const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        const date = new Date(chat.date);
-        const time = date.toLocaleTimeString().replace(/:\d+ |\CDT/g, ' ');
-        element.append(
-          `<div class="chat"> <div class="chat-meta">
-          <img width="10" height="45" src="${chat.avatar}"> <b>${chat.username}</b> &emsp;<small style="color:#bbb"=>${time}</small><br>
-           <div class="chat-message">${chat.message}</div>
-           </div>
-          <div class="clearfix"></div>
-          </div>`
-        );
-        $('#chatContent').scrollTop(element.height());
-        if (chat.username !== window.localStorage.getItem('username')) {
-          $('#chatNotification').show();
-          const chatNum = Number(window.localStorage.getItem('chatCount')) + 1;
-          window.localStorage.setItem('chatCount', chatNum);
-          $('#chatCount').show();
-          $('#chatCount').html(chatNum);
-        }
-      };
-
-      // set current players details to localStorage
-      scope.setPlayer = (avatar, username) => {
-        window.localStorage.setItem('avatar', avatar);
-        window.localStorage.setItem('username', username);
-        window.localStorage.setItem('chatcount', 0);
-        scope.isPlayerSet = true;
-      };
-        // listen for chat messages
-      socket.on('chat message', (chat) => {
-        displayChat(chat);
-      });
-
-        // Submit the chat when the 'enter' key is pressed
-      $('body').on('keyup', '#chatInput', (event) => {
-        if (event.which === 13) {
-          $('#chatInput').trigger('blur');
-          scope.sendChatMessage();
-        }
-      });
-    },
-  })]);
+  });
