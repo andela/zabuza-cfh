@@ -54,18 +54,7 @@ function GameTourController($scope, game, $window) {
     ]
   });
 
-  const isGameCustom = () => {
-    const custom = $window.location.href.indexOf('custom') >= 0;
-    return (custom);
-  };
 
-  const tourComplete = () => {
-    if (isGameCustom()) {
-      $window.location = '/app?custom';
-    } else {
-      $window.location = '#!/';
-    }
-  };
   const beforeTourChange = (targetElement) => {
     switch (targetElement.id) {
       case 'finding-players':
@@ -170,7 +159,6 @@ function GameTourController($scope, game, $window) {
     }
   };
   $scope.gameTour.start()
-  .oncomplete(tourComplete)
        .onbeforechange(beforeTourChange);
 }
 
