@@ -33,7 +33,7 @@
                   <div >
                     <div class="col-md-2 col-sm-2 col-xs-2 single-avatar" ng-repeat="avatar in avatars" class="avatars ng-scope">
 
-                      <input name="avatar" type='radio' value="{{$index}}">
+                      <input name="avatar" type='radio' ng-value="{{$index}}" ng-model="formData.avatar">
                         <img ng-src="{{avatar}}">
                       </input>
                     </div>
