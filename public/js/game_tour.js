@@ -1,4 +1,4 @@
-angular.module('mean').controller('GameTourController', GameTourController);
+angular.module('mean.system', []).controller('GameTourController', GameTourController);
 
 function GameTourController($scope, game, $window) {
   $scope.game = game;
@@ -24,11 +24,8 @@ function GameTourController($scope, game, $window) {
     },
     {
       element: '#finding-players',
-      intro: 'Game needs a minimum of 3 players to start. You have to wait for the minimum number of players to join the game.'
-    },
-    {
-      element: '#isPlayer',
-      intro: 'This is you, that icon to help you identify yourself amongst other players.'
+      intro: 'Game needs a minimum of 3 players to start. You have to wait for the minimum number of players to join the game.',
+      position: 'top'
     },
     {
       element: '#inner-timer-container',
@@ -41,11 +38,6 @@ function GameTourController($scope, game, $window) {
     {
       element: '#tweet-container',
       intro: 'share game experience with friends on twitter'
-    },
-    {
-      element: '#charity-widget-container',
-      intro: 'Click here to donate to charity at the end of the game.',
-      position: 'right'
     },
     {
       element: '#question-container-outer',
@@ -66,6 +58,7 @@ function GameTourController($scope, game, $window) {
     const custom = $window.location.href.indexOf('custom') >= 0;
     return (custom);
   };
+
   const tourComplete = () => {
     if (isGameCustom()) {
       $window.location = '/app?custom';
@@ -178,7 +171,6 @@ function GameTourController($scope, game, $window) {
   };
   $scope.gameTour.start()
   .oncomplete(tourComplete)
-       .onexit(tourComplete)
        .onbeforechange(beforeTourChange);
 }
 
