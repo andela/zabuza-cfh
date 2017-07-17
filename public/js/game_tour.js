@@ -55,13 +55,13 @@ function GameTourController($scope, game, $window) {
   });
 
   const isGameCustom = () => {
-    const custom = $window.location.href.indexOf('custom') >= 0;
+    const custom = $window.location.href.indexOf('') >= 0;
     return (custom);
   };
 
   const tourComplete = () => {
     if (isGameCustom()) {
-      $window.location = '/app?custom';
+      $window.location = '#!/app?custom';
     } else {
       $window.location = '#!/';
     }
