@@ -1,11 +1,9 @@
 <div id="signupbg">
     <div class="login-page">
       <div class="row">
-      <div class="col-md-9">
-      <center><p class="title">Sign in to Play</p></center>
+      <div>
+      <center><p class="titl">Sign in to Play</p></center>
       </div>
-      <div class="col-md-3 home">
-        </div>
         </div>
       <div class="sign-error" ng-show="showError() === 'invalid'">
         Please check your username/password and try again.
@@ -25,27 +23,18 @@
             <input type="password" class="form-control input-lg" id="password" placeholder="Enter password" ng-model="formData.password" required>
           </div>
         </div>
-          <div id="contain-avatars">
-            <center><h3 id="title">select an avatar</h3></center>
-                  <div ng-controller="IndexController" class="avatar-list">
-                    <div class="col-md-2 col-sm-2 col-xs-2 single-avatar" ng-repeat="avatar in avatars" class="avatars ng-scope">
-                      <input name="avatar" type='radio' value="{{$index}}">
-                        <img ng-src="{{avatar}}">
-                      </input>
-                    </div>
-                  </div>
-                </div>
+          
         <div class="form-group" id="signupbtn">        
           <div class="col-sm-12 btnmargin">
-            <center><button type="submit" class="btn btn-warning btn-lg" ng-click="signIn()">Sign into your Account</button></center>
+            <center><button type="submit" class="btn btn-warning btn-lg" ng-click="signIn()">Sign in</button></center>
           </div>
         </div>
          <center><p class="account"> Not yet registered? <a href="#!/signup">Sign up</a></center>
       </form>
        <center class="homelink"> <a href="/">Go to Home</a></center>
       <hr>
-     <div id="center">
-       Connect to your social accounts
+     <div id="social">
+       <p>Connect to your social accounts</p>
 <a  href="/auth/twitter" class="btn btn-social-icon btn-twitter socialbtn">
   <span class="fa fa-twitter"></span>
 </a>
@@ -58,8 +47,6 @@
 <a  href="/auth/github" class="btn btn-social-icon btn-github socialbtn">
   <span class="fa fa-github"></span>
 </a>
-<br>
-<br>
     </div>
   </div>
 

@@ -18,8 +18,8 @@ html{
   background: #fff;
   color: #f0ad4e;
   padding: 10px 3em;
-  max-width: 500px;
-  margin : 40px auto;
+  max-width: 480px;
+  margin : 60px auto;
  
   
 }
@@ -31,15 +31,22 @@ html{
   font-size: 25px;
   margin-left: 20px;
 }
-.title {
+.titl {
   font-family: 'Lobster';
   font-size: 25px;
-  margin-left: 120px;
+  text-align: center !important;
 }
-.fa{
-  transition: 0.5s;
+
+.fa {
   color:#f0ad4e;
-  font-size: 100px;
+   padding-bottom: 20px; 
+}
+.fa:hover{
+  transition: 0.2s;
+  font-size: 25px;
+}
+div#social {
+  text-align: center;
 }
 .socialbtn{
   font-size: 20px;
@@ -56,6 +63,7 @@ color: #000;
 }
 .btn-lg{
   transition:0.5s;
+  margin-right: auto;
 }
 .home {
   margin-top: 10px;
@@ -265,8 +273,12 @@ div#gamerules{
     border-radius: 5px;
     border: 2px solid #cf6d17;
     background: #cf6d17;
-    margin: 25px;
+    margin: 25px auto 25px auto;
  }
+  .tour {
+    margin-bottom: -30px !important;
+
+  };
 
 #sign-up-btn-landing:hover {
      background:#993300;
@@ -395,6 +407,10 @@ a.friends-btn {
    -o-user-select: none;
    user-select: none;
    cursor: pointer;
+}
+
+#facetweet {
+  margin-bottom: 15px;
 }
 
 #facebook-share a{
