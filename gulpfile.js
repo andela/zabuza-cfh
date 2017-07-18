@@ -33,7 +33,6 @@ gulp.task('intro', () => {
   gulp.src('bower_components/intro.js/**/*')
     .pipe(gulp.dest('public/lib/intro.js'));
 });
-
 gulp.task('angular-route', () => {
   gulp.src('bower_components/angular-route/**/*.js')
     .pipe(gulp.dest('public/lib/angular-route'));

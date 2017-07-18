@@ -140,9 +140,11 @@ angular.module('mean.system')
 
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
+      // console.log(data);
       game.curQuestion = data.curQuestion;
       // Extending the underscore within the question
-      game.curQuestion.text = data.curQuestion.text.replace(/_/g,'<u></u>');
+      // game.curQuestion.text = data.curQuestion.text.replace(/_/g, '<u></u>');
+      game.curQuestion.text = data.curQuestion.text.replace(/_/g, '_________');
 
       // Set notifications only when entering state
       if (newState) {
