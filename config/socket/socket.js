@@ -73,6 +73,10 @@ module.exports = (io) => {
       joinGame(socket,data);
     });
 
+ socket.on('czarCardSelected', () => {
+      allGames[socket.gameID].startNextRound(allGames[socket.gameID]);
+   });
+
     socket.on('startGame', function() {
       if (allGames[socket.gameID]) {
         var thisGame = allGames[socket.gameID];
@@ -244,7 +248,7 @@ module.exports = (io) => {
         game.removePlayer(socket.id);
       } else {
         game.stateDissolveGame();
-        for (var j = 0; j < game.players.length; j++) {
+        for (let j = 0; j < game.players.length; j++) {
           game.players[j].socket.leave(socket.gameID);
         }
         game.killGame();
@@ -253,5 +257,4 @@ module.exports = (io) => {
     }
     socket.leave(socket.gameID);
   };
-
 };
