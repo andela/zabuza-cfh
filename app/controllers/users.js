@@ -1,18 +1,22 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose');
-var jwt = require('jsonwebtoken');
-var bcrypt = require('bcryptjs');
-var config = require('../../config/config');
-var avatars = require('./avatars').all();
-var  User = mongoose.model('User');
-
+const helper = require('sendgrid').mail;
+const sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+const mongoose = require('mongoose'),
+  User = mongoose.model('User');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const config = require('../../config/config');
+const avatars = require('./avatars').all();
 
 /**
  * Auth callback
+ * @param {object} req
+ * @param {object} res
+ * @returns {void}
  */
-exports.authCallback = function (req, res, next) {
+exports.authCallback = function (req, res) {
   res.redirect('/chooseavatars');
 };
 
@@ -41,7 +45,7 @@ exports.signup = function (req, res) {
 /**
  * Logout
  */
-exports.signout = (req, res) => {
+exports.signout = function (req, res) {
   req.logout();
   res.redirect('/');
 };
@@ -49,21 +53,21 @@ exports.signout = (req, res) => {
 /**
  * Session
  */
-exports.session = (req, res) => {
+exports.session = function (req, res) {
   res.redirect('/');
 };
 
-/** 
+/**
  * Check avatar - Confirm if the user who logged in via passport
  * already has an avatar. If they don't have one, redirect them
  * to our Choose an Avatar page.
  */
-exports.checkAvatar = (req, res) => {
+exports.checkAvatar = function (req, res) {
   if (req.user && req.user._id) {
     User.findOne({
       _id: req.user._id
     })
-      .exec((err, user) => {
+      .exec(function (err, user) {
         if (user.avatar !== undefined) {
           res.redirect('/#!/');
         } else {
@@ -74,7 +78,6 @@ exports.checkAvatar = (req, res) => {
     // If user doesn't even exist, redirect to /
     res.redirect('/');
   }
-
 };
 
 /**
@@ -86,7 +89,7 @@ exports.create = function (req, res, next) {
       email: req.body.email
     }).exec((err, existingUser) => {
       if (!existingUser) {
-        var user = new User(req.body);
+        const user = new User(req.body);
         // Switch the user's avatar index to an actual avatar url
         user.avatar = avatars[user.avatar];
         user.provider = 'local';
@@ -175,8 +178,8 @@ exports.addDonation = (req, res) => {
       })
         .exec((err, user) => {
           // Confirm that this object hasn't already been entered
-          var duplicate = false;
-          for (var i = 0; i < user.donations.length; i++) {
+          let duplicate = false;
+          for (let i = 0; i < user.donations.length; i++) {
             if (user.donations[i].crowdrise_donation_id === req.body.crowdrise_donation_id) {
               duplicate = true;
             }
@@ -196,12 +199,12 @@ exports.addDonation = (req, res) => {
 /**
  *  Show profile
  */
-exports.show = function (req, res){
-  var user = req.profile;
+exports.show = function (req, res) {
+  const user = req.profile;
 
   res.render('users/show', {
     title: user.name,
-    user: user
+    user
   });
 };
 
@@ -222,8 +225,67 @@ exports.user = function (req, res, next, id) {
     })
     .exec((err, user) => {
       if (err) return next(err);
-      if (!user) return next(new Error('Failed to load User ' + id));
+      if (!user) return next(new Error(`Failed to load User ${id}`));
       req.profile = user;
       next();
     });
+};
+
+
+ // Get all user in the dtatabase
+ exports.searchUsers = (req, res) => {
+   // get all the users from mongoDB
+   User.find({}, (err, users) => {
+     if (err) {
+       return res.status(400).json({ err });
+     }
+     // return res.json(users);
+     return res.status(200).json(users);
+  });
+ };
+
+ // send an invitation email to user
+ exports.invitePlayers = (req, res) => {
+   const fromEmail = new helper.Email('no-reply@cfh.com');
+   const toEmail = new helper.Email(req.body.email);
+   const subject = 'Invitation to an ongoing round of Cards for Humanity';
+   const content = new helper.Content('text/plain',
+   `Hello ${req.body.name}, 
+   ${req.body.from} has sent you an invite to join them in a game of CFH
+    click on the link below or copy/paste it in your browser url to join the game
+    ${req.body.urlLink}
+    
+    br
+    CFH`
+   );
+   const mail = new helper.Mail(fromEmail, subject, toEmail, content);
+   const request = sg.emptyRequest({
+     method: 'POST',
+     path: '/v3/mail/send',
+     body: mail.toJSON()
+   });
+   sg.API(request, (error) => {
+     if (error) {
+       return res.json({ error });
+     }
+     return res.json({ sent: true });
+   });
+ };
+
+  /**
+   *
+   *Finds all the users in the database
+   * @param {string} req
+   * @param {object} res
+   */
+exports.all = (req, res) => {
+  User.find({}).exec((err, users) => {
+    if (err) {
+      res.render('error', {
+        status: 500,
+      });
+    } else {
+      res.jsonp(users);
+    }
+  });
 };

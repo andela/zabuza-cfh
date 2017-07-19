@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
     async = require('async'),
     Answer = mongoose.model('Answer'),
     _ = require('underscore');
-
+let gameRegion;
 
 /**
  * Find answer by id
@@ -26,6 +26,10 @@ exports.show = function(req, res) {
     res.jsonp(req.answer);
 };
 
+exports.byRegion = (req, res) => {
+  gameRegion = req.params.region;
+  res.send('tango');
+};
 /**
  * List of Answers
  */
@@ -45,7 +49,10 @@ exports.all = function(req, res) {
  * List of Answers (for Game class)
  */
 exports.allAnswersForGame = function(cb) {
-    Answer.find({official:true}).select('-_id').exec(function(err, answers) {
+    console.log(gameRegion, 'answers');
+    Answer.find({official: true, region: gameRegion })
+    .select('-_id')
+    .exec(function(err, answers) {
         if (err) {
             console.log(err);
         } else {

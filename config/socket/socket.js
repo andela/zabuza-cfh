@@ -160,6 +160,7 @@ module.exports = (io) => {
           game.prepareGame();
         }
       } else {
+        socket.to(socket.id).emit('player_limit_exceeded');
         // TODO: Send an error message back to this user saying the game has already started
       }
     } else {

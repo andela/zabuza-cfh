@@ -10,6 +10,10 @@ module.exports = function (app, passport, auth) {
 
     app.get('/signout', users.signout);
 
+    // authenticated endpoint to search current users
+    app.get('/api/users/search', users.searchUsers);
+    app.post('/api/user/invite/:user_details', users.invitePlayers);
+
     // Setting up the users api
     app.post('/users', users.create);
     app.post('/users/avatars', users.avatars);
