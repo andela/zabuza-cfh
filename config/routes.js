@@ -95,5 +95,6 @@ module.exports = function (app, passport, auth) {
 
   // Intro route
   app.get('/gametour', index.gameTour);
+  app.post('/setregion', index.setRegion);
 
 };
