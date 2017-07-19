@@ -1,16 +1,22 @@
 </script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 <div class="row" id="app-container" ng-controller="GameController">
   <div id="menu-container">
-    <div id="logo">
-      <span id="first-word">Cards</span>
-      <span id="second-word"> for</span>
-      <span id="third-word">Humanity</span>
-    </div>
-    <div id = 'abandon-game-button' ng-click="abandonGame()">
+    <span id="logo">
+    Cards for Humanity
+    </span>
+  <div id='donate-btn' class="pull-right">
+    <a href="https://www.crowdrise.com/donate/project/cfhio/cards4humanity/0" title="Fundraising Websites on Crowdrise" target="__blank">Donate now</a>
+  </div>
+    <div id='abandon-game-button' ng-click="abandonGame()" class="pull-right">
         Abandon Game
     </div>
         <span id="tweet-container">
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfh.io" data-text="Cards for Humanity: A Game for Horrible People Desperately Trying to do Good" data-related="CFH_App">Tweet</a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfh.io" data-text="Cards for Humanity: A Game for Horrible People Desperately Trying to do Good" data-related="CFH_App" data-toggle="tooltip" title="tweet!" data-placement="top"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </span>
   </div>
@@ -24,13 +30,17 @@
           <timer></timer>
         </div>
       </div>
-      <div id="question-container-outer">
+      <!-- Div for question -->
+       <div id="question-container-outer">
         <question></question>
-      </div>
+      </div> 
+      <!-- End -->
     </div>
+    <!-- Div for answer -->
     <div>
       <answers></answers>
     </div>
+    <!-- End -->
     <section class="col-md-offset-11 col-md-4" style="padding-top: 10%">
       <aside>
         <div class="chatbox">
