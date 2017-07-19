@@ -1,3 +1,11 @@
+#loading-container #loading-gif img {
+  width: 100px;
+}
+#startGame #finding-players {
+  color: #cf6d17;
+  font-family: 'Lobster', 'cursive';
+}
+
 .card {
   position: relative;
   display: inline-block;
@@ -13,6 +21,7 @@
   font-size: 20px;
   font-weight: bold;
   vertical-align: top;
+  box-shadow: 1px 1px 2px black;
 }
 @media (max-width: 520px) {
   .card {
@@ -36,16 +45,27 @@
   color: white;
 }
 .card.longBlack {
-  background: #252525;
   border-color: white;
+  background: rgba(0, 0, 0, 0.4);
   color: white;
+  border: 1px solid #cf6d17;
   height: 100%;
   width: 35.5em;
   padding-left: 2%;
   padding-right: 2%;
+  opacity: 0.9;
+
 }
 .card.smallest {
   font-size: 0.750em;
+}
+
+#main-container #menu-container #logo {
+  color: #cf6d17;
+}
+
+#main-container #menu-container #donate-btn {
+  margin: auto 15px;
 }
 @media (max-width: 520px) {
   .card.smallest {
@@ -128,10 +148,7 @@ body {
 }
 #main-container #app-container #menu-container {
   width: 100%;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-  background: #252525;
+  background: linear-gradient(to right, #ffffff 0%, #e6e6e6 100%);
   margin-bottom: 10px;
   margin-top: 5px;
   padding: 5px;
@@ -162,27 +179,30 @@ body {
 #main-container #app-container #menu-container #logo #third-word {
   color: #FC575E;
 }
-#main-container #app-container #menu-container #abandon-game-button {
+#main-container #app-container #menu-container #donate-btn a {
+  text-decoration: none;
+}
+#main-container #app-container #menu-container #abandon-game-button, #main-container #app-container #menu-container #donate-btn a{
   display: inline-block;
   /*float: right;*/
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   font-size: 20px;
   font-size: 1.25rem;
   font-weight: 400;
   text-align: center;
   color: white;
-  background: #C54141;
+  background: #cf6d17;
   margin-top: 3px;
   margin-bottom: 3px;
   margin-right: 10px;
-  padding: 0.65em 20px;
-  width: 140px;
+  padding: 0.65em 15px;
+  width: 120px;
   cursor: pointer;
 }
 @media (max-width: 520px) {
-  #main-container #app-container #menu-container #abandon-game-button {
+  #main-container #app-container #menu-container #abandon-game-button, #main-container #app-container #menu-container #donate-btn a{
     font-size: 0.7rem;
     margin-top: 5px;
     margin-right: 1px;
@@ -190,14 +210,29 @@ body {
     width: 60px;
   }
 }
-#main-container #app-container #menu-container #abandon-game-button:hover {
-  background: #F34444;
+#main-container #app-container #menu-container #abandon-game-button:hover, #main-container #app-container #menu-container #donate-btn a:hover {
+  background: none;
+  border: 1px solid #cf6d17;
+  color: #cf6d17;
+  transition: 0.4s;
+  -moz-transition: 0.4s;
+  -webkit-transition: 0.4s;
 }
 #main-container #app-container #menu-container #tweet-container {
   float: right;
-  padding-top: 10px;
+  padding-top: 5px;
   width: 77px;
-  margin-right: 10px;
+  margin-right: 0px;
+  
+}
+.fa {
+  color:  #0084b4;
+}
+.fa:hover {
+  font-size: initial !important;
+}
+#main-container #app-container #menu-container #tweet-container .fa:hover {
+  opacity: 0.5 !important;
 }
 @media (max-width: 520px) {
   #main-container #app-container #menu-container #tweet-container {
@@ -242,11 +277,9 @@ body {
   padding-top: 4%;
   padding-bottom: 4%;
   min-height: 85px;
-  background: #7CE4E8;
+  background: darkslategrey;
   margin: 0 0 6% 8%;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
+
 }
 @media (max-width: 520px) {
   #main-container #app-container #social-bar-container #player-container {
@@ -300,9 +333,9 @@ body {
   width: 100%;
   height: 140%;
   float: left;
-  -webkit-border-radius: 8px;
+  /* -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  border-radius: 8px;
+  border-radius: 8px; */
   min-width: 40px;
   min-height: 40px;
 }
@@ -512,12 +545,11 @@ body {
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container {
   text-align: center;
-  text-align: center;
   position: relative;
   font-weight: bold;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
   -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
   box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -533,7 +565,7 @@ body {
   min-width: 85px;
   min-height: 85px;
   height: 100%;
-  color: #000;
+  color: #cf6d17;
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
   position: absolute;
@@ -626,6 +658,7 @@ body {
   width: 33.333%;
   float: left;
   text-align: center;
+  
 }
 #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #player-count-container #player-count {
   font-size: 33px;
@@ -698,12 +731,13 @@ body {
 }
 #main-container #app-container #gameplay-container #info-container {
   width: 100%;
-  background: #252525;
+  background: rgba(207, 109, 23, 0.4);
   color: white;
-  -webkit-border-radius: 8px;
+   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  border-radius: 8px;
+  border-radius: 8px; 
   text-align: center;
+  border: 1px solid #cf6d17;
   padding: 15px;
   height: 50%;
   margin-top: 10px;
@@ -753,9 +787,10 @@ body {
 }
 #main-container #app-container #gameplay-container #game-end-container {
   width: 100%;
-  background: #252525;
+  background: rgba(207, 109, 23, 0.4);
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
+  border: 1px solid #cf6d17;
   border-radius: 8px;
   text-align: center;
   overflow: hidden;
@@ -816,7 +851,7 @@ body {
 #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #join-new-game {
   /*float: left;*/
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
-  background-color: white;
+  background-color: #cf6d17;
   -webkit-border-top-left-radius: 8px;
   -moz-border-radius-topleft: 8px;
   border-top-left-radius: 8px;
@@ -831,12 +866,14 @@ body {
   border-bottom-left-radius: 8px;
   text-indent: 0;
   display: inline-block;
-  color: #252525;
+  color: #fff;
+  border: none;
   font-size: 39px;
   font-weight: bold;
   font-style: normal;
-  height: 100px;
-  line-height: 100px;
+  padding-bottom: 10px;
+  /* height: 100px; */
+  /* line-height: 100px; */
   width: 200px;
   text-decoration: none;
   text-align: center;
@@ -845,17 +882,22 @@ body {
   display: block;
   width: 40%;
   margin: 5%;
-  height: 28%;
+  /* height: 28%; */
   font-size: 21px;
-  line-height: 155%;
-  padding-top: 5%;
+  /* line-height: 155%; */
+  padding-top: 10px;
 }
 #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #join-new-game:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
   background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
-  background-color: #f0f0f0;
-  color: #4e4e4e;
+  color: #cf6d17;
+  border: 1px solid #cf6d17;
+  background: none;
+  transition: 0.4s;
+}
+#main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container a {
+  text-decoration: none;
 }
 #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #exit-match {
   /*float: left;*/
@@ -875,13 +917,16 @@ body {
   border-bottom-left-radius: 8px;
   text-indent: 0;
   display: inline-block;
-  color: #252525;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  color: black;
   font-size: 39px;
+  border: none;
   font-weight: bold;
   font-style: normal;
-  height: 100px;
-  line-height: 100px;
-  width: 200px;
+  /* height: 100px; */
+  /* line-height: 100px; */
+  /* width: 200px; */
   text-decoration: none;
   text-align: center;
   cursor: pointer;
@@ -891,15 +936,17 @@ body {
   margin: 5%;
   height: 28%;
   font-size: 21px;
-  line-height: 155%;
-  padding-top: 5%;
+  /* line-height: 155%; */
+  padding-top: 10px;
 }
 #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #exit-match:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
   background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
-  background-color: #f0f0f0;
-  color: #4e4e4e;
+  background: none;
+  color: #cf6d17;
+  border: 1px solid #cf6d17;
+  transition: 0.4s;
 }
 #main-container #app-container #gameplay-container #czar-blank-container {
   color: white;
@@ -995,7 +1042,7 @@ body {
 }
 #main-container #app-container #gameplay-container #cards-container {
   width: 100%;
-  background: #252525;
+  background: rgba(0, 0, 0, 0.4);
   margin-top: 11px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -1012,10 +1059,11 @@ body {
   height: 100%;
   font-size: 18px;
   padding-left: 5px;
+  background: rgba(0, 0, 0, 0.4);
 }
 @media (max-width: 520px) {
   #main-container #app-container #gameplay-container #cards-container #cards {
-    background: #252525;
+    background: rgba(0, 0, 0, 0.4);
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
