@@ -1,6 +1,8 @@
 /**
  * Module dependencies.
  */
+const helper = require('sendgrid').mail;
+const sg = require('sendgrid')(process.env.SEND_GRID_API);
 var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
@@ -64,6 +66,8 @@ exports.checkAvatar = (req, res) => {
       _id: req.user._id
     })
       .exec((err, user) => {
+        console.log(user.email);
+        localStorage.setItem('email', user.email);
         if (user.avatar !== undefined) {
           res.redirect('/#!/');
         } else {
@@ -135,6 +139,7 @@ exports.login = function (req, res, next) {
           const token = jwt.sign(existingUser, config.secret, {
             expiresIn: 10080 // in seconds
           });
+          localStorage.setItem('JWTOKEN', token);
           // return res.redirect('/#!/');
           res.status(200).json({ success: true, token: `JWT ${token}` });
         });
@@ -159,6 +164,7 @@ exports.avatars = (req, res) => {
       _id: req.user._id
     })
       .exec((err, user) => {
+        localStorage.setItem('email', user.email);
         user.avatar = avatars[req.body.avatar];
         user.save();
       });
@@ -193,6 +199,23 @@ exports.addDonation = (req, res) => {
   res.send();
 };
 
+exports.getDonations = (req, res) => {
+  User.find()
+  .then((response) => {
+    if (response.length === 0) {
+      return res.send({ message: 'no data' });
+    }
+    const donationData = [];
+    response.forEach((array) => {
+      donationData.push({ name: array.name, avatar: array.avatar, donations: array.donations.length });
+    });
+    res.send(donationData);
+  })
+  .catch((error) => {
+    res.send(error);
+  });
+};
+
 /**
  *  Show profile
  */
@@ -201,7 +224,7 @@ exports.show = function (req, res){
 
   res.render('users/show', {
     title: user.name,
-    user: user
+    user
   });
 };
 
@@ -228,6 +251,7 @@ exports.user = function (req, res, next, id) {
     });
 };
 
+
 exports.getDonations = (req, res) => {
   User.find()
   .then((response) => {
@@ -242,5 +266,44 @@ exports.getDonations = (req, res) => {
   })
   .catch((error) => {
     res.send(error);
+
+// Get all user in the dtatabase
+module.exports.search = (req, res) => {
+  // get all the users from mongoDB
+  User.find({}, (err, users) => {
+    if (err) {
+      return res.json({ err });
+    }
+    return res.json(users);
+  });
+};
+
+
+// send an invitation email to user
+module.exports.invitePlayers = (req, res) => {
+  const fromEmail = new helper.Email('no-reply@cfh.com');
+  const toEmail = new helper.Email(req.body.email);
+  const subject = 'Invitation to an ongoing round of Cards for Humanity';
+  const content = new helper.Content('text/plain',
+  `Hello ${req.body.name}, 
+  ${req.body.from} has sent you an invite to join them in a game of CFH
+   click on the link below or copy/paste it in your browser url to join the game
+   ${req.body.urlLink}
+   
+   br
+   CFH`
+  );
+  const mail = new helper.Mail(fromEmail, subject, toEmail, content);
+  const request = sg.emptyRequest({
+    method: 'POST',
+    path: '/v3/mail/send',
+    body: mail.toJSON()
+  });
+  sg.API(request, (error, response) => {
+    if (error) {
+      return res.status(error.response.statusCode).json();
+    }
+    return res.json({response});
+    // return res.json({ sent: true });
   });
 };

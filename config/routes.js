@@ -106,4 +106,8 @@ module.exports = function (app, passport, auth) {
   app.post('/games/save', gamelog.saveGameLog);
   app.get('/api/leaderboard', gamelog.getLeaderBoard);
   app.get('/api/game/history', gamelog.gameHistory);
+
+  // authenticated endpoint to search current users
+  app.get('/api/users/search', users.search);
+  app.post('/api/user/invite/:user_details', users.invitePlayers);
 };

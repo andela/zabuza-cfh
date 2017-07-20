@@ -41,7 +41,7 @@ function GameTourController($scope, game, $window) {
     },
     {
       element: '#question-container-outer',
-      intro: 'start game and  awaiting players to join the game'
+      intro: 'start game and   to join the game'
     },
     {
       element: '#rules',

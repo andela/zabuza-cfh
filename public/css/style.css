@@ -11,6 +11,73 @@ body {
   -webkit-background-size: cover;
   width: 100%;
 }
+.disabledElement {
+   /* Make the disabled links grayish*/
+   background: gray !important;
+   /* And disable the pointer events */
+   pointer-events: none;
+ }
+ .allModalBtn{
+   margin-left: 30%;
+ }
+ .modal-title{
+   text-align: center;
+   font-family: "Lobster" !important;
+ }
+ .modal-body{
+   font-family: "Lato";
+ }
+ .eachUser{
+   padding: 0.2em;
+ }
+ .modalBtn{
+   background: #FC9800;
+   color: white;
+   border: none;
+   font-size: 1em;
+   padding: 1em;
+  font-family: "Lato" !important ;
+   border-radius: 1em;
+ 
+ }
+ .modalBtn:hover{
+   background: #c98c2a !important;
+ }
+ .modal-dialog{
+   max-height:80%;
+   margin-top: 50px;
+   margin-bottom:50px;
+   max-width: 36em;
+ }
+ .usernameHeader{
+   position: fixed;
+   margin-top: 0.5em; 
+ }
+ .modalHeight{
+   margin-top: 3em;
+   margin-bottom: 0.3em;
+   overflow-y: scroll;
+   overflow-y: auto;
+   max-height:20em;
+ }
+ .headerText{
+   font-size: 1.4em;
+   margin-bottom:0.2em;
+   font-weight:bold;
+ }
+ .msgCenter{
+   text-align: center;
+ }
+ .modal-header {
+   color: whitesmoke;
+   background-color: #c98c2a;
+   border-top: #c98c2a;
+   border-top-color: #c98c2a;
+   border-color: #c98c2a;
+ }
+ .searchErrorMsg{
+   margin-top: 2em;
+ }
 html{
   background: transparent;
 }

@@ -1,31 +1,129 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$http', '$timeout', '$location', 'MakeAWishFactsService', '$dialog', function ($scope, game, $http, $timeout, $location, MakeAWishFactsService, $dialog) {
+.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', '$http', '$dialog', function ($scope, game, $timeout, $location, MakeAWishFactsService, $http, $dialog) {
   $scope.hasPickedCards = false;
   $scope.winningCardPicked = false;
   $scope.showTable = false;
   $scope.modalShown = false;
   $scope.game = game;
   $scope.pickedCards = [];
+  $scope.invitedUsers = [];
   let makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
   $scope.makeAWishFact = makeAWishFacts.pop();
 
   $scope.pickCard = function (card) {
     if (!$scope.hasPickedCards) {
       if ($scope.pickedCards.indexOf(card.id) < 0) {
-          $scope.pickedCards.push(card.id);
-          if (game.curQuestion.numAnswers === 1) {
-            $scope.sendPickedCards();
-            $scope.hasPickedCards = true;
-          } else if (game.curQuestion.numAnswers === 2 &&
+        $scope.pickedCards.push(card.id);
+        if (game.curQuestion.numAnswers === 1) {
+          $scope.sendPickedCards();
+          $scope.hasPickedCards = true;
+        } else if (game.curQuestion.numAnswers === 2 &&
             $scope.pickedCards.length === 2) {
             // delay and send
-            $scope.hasPickedCards = true;
-            $timeout($scope.sendPickedCards, 300);
-          }
-        } else {
-          $scope.pickedCards.pop();
+          $scope.hasPickedCards = true;
+          $timeout($scope.sendPickedCards, 300);
         }
+      } else {
+        $scope.pickedCards.pop();
+      }
     }
+  };
+
+  $scope.startGame = function () {
+      // when user tries to start game without meeting minimum requirement
+    if (game.players.length < game.playerMinLimit) {
+      const myModal = $('#playerRequirement');
+      myModal.find('.modal-title')
+          .text('Player requirement');
+      myModal.find('.modal-body')
+          .text('Sorry! You require a minimum of three(3) players to play this game');
+      myModal.modal('show');
+    } else {
+      game.startGame();
+    }
+  };
+
+  $scope.getUsers = function () {
+    localStorage.setItem('email', game.players[game.playerIndex].email);
+      // Display all users from mongoDB into modal
+    $scope.searchTerm = '';
+    $scope.sentSuccessfully = 0;
+    $scope.selectedUsers = [];
+    const myModal = $('#invite-players');
+    myModal.modal('show');
+    $scope.allUsers = [];
+    $http({
+      method: 'GET',
+      url: 'api/users/search'
+    }).then((response) => {
+      console.log(response);
+      response.data.map((eachUser) => {
+          // Excludes current user from the list of users that can recieve invites
+        if (eachUser.email !== localStorage.email && eachUser.name) {
+          $scope.allUsers.push(eachUser);
+        }
+      });
+    });
+    $scope.filteredUsers = $scope.allUsers;
+  };
+
+  $scope.countPlayers = function () {
+    $scope.selectedUsers = $scope.allUsers.filter((user) => {
+      if (user.selected) {
+        return user;
+      }
+    });
+  };
+
+  $scope.invitePlayers = function () {
+    const mailSentBy = $scope.game.players[0].username;
+
+      // Close invitation modal and show mail sent information
+    const myModal = $('#invite-players');
+    myModal.modal('hide');
+
+      // iterate through object and send emails to selected users
+    $scope.selectedUsers.map((user) => {
+      const userDetails = {
+        name: user.name,
+        email: user.email,
+        urlLink: document.URL,
+        from: mailSentBy,
+      };
+      $http({
+        method: 'POST',
+        url: '/api/user/invite/:userDetails',
+        data: userDetails
+      }).then((response) => {
+        if (response.data.sent) {
+          $scope.invitedUsers.push(user.email);
+            // show modal when invitations sent out successfully
+          const inviteSuccessful = $('#playerRequirement');
+          inviteSuccessful.find('.modal-body')
+              .text("Invites sent to users' email");
+          inviteSuccessful.modal('show');
+        }
+      }, (error) => {
+          // show modal when invitations is unsuccessfully(Failed)
+        const inviteSuccessful = $('#playerRequirement');
+        inviteSuccessful.find('.modal-body')
+            .text(`Invites could not be sent at the moment, 
+          check your internet connection and try again
+          Error code: ${error.status}`);
+        inviteSuccessful.modal('show');
+      });
+    });
+  };
+
+  $scope.searchUsers = function () {
+    const regexSearchTerm = RegExp($scope.searchTerm, 'gi');
+    $scope.filteredUsers = $scope.allUsers.filter((user) => {
+      if (user.name) {
+        if (user.name.search(regexSearchTerm) !== -1) {
+          return user;
+        }
+      }
+    });
   };
 
   $scope.saveGameUser = function () {
@@ -125,10 +223,6 @@ angular.module('mean.system')
     return game.winningCard !== -1;
   };
 
-  $scope.startGame = function () {
-    game.startGame();
-  };
-
   $scope.abandonGame = function () {
     game.leaveGame();
     $location.path('/');
@@ -168,25 +262,25 @@ angular.module('mean.system')
     if (game.state === 'waiting for czar to decide' && $scope.showTable === false) {
       $scope.showTable = true;
     }
-     if ($scope.isCzar() && game.state === 'czar pick card' && game.table.length === 0) {
-         $('#shuffleModal').modal({
-           dismissible: false
-         });
-         $('#shuffleModal').modal('open');
-       }
-       if (game.state === 'game dissolved') {
-         $('#shuffleModal').modal('close');
-       }
-       if ($scope.isCzar() === false && game.state === 'czar pick card'
+    if ($scope.isCzar() && game.state === 'czar pick card' && game.table.length === 0) {
+      $('#shuffleModal').modal({
+        dismissible: false
+      });
+      $('#shuffleModal').modal('open');
+    }
+    if (game.state === 'game dissolved') {
+      $('#shuffleModal').modal('close');
+    }
+    if ($scope.isCzar() === false && game.state === 'czar pick card'
          && game.state !== 'game dissolved'
          && game.state !== 'awaiting players' && game.table.length === 0) {
-         $scope.czarHasDrawn = 'Wait! Czar is drawing Card';
-       }
-       if (game.state !== 'czar pick card'
+      $scope.czarHasDrawn = 'Wait! Czar is drawing Card';
+    }
+    if (game.state !== 'czar pick card'
         && game.state !== 'awaiting players'
          && game.state !== 'game dissolve') {
-         $scope.czarHasDrawn = '';
-       }
+      $scope.czarHasDrawn = '';
+    }
   });
 
   $scope.$watch('game.gameID', () => {
@@ -194,21 +288,21 @@ angular.module('mean.system')
       if (!$scope.isCustomGame() && $location.search().game) {
           // If the player didn't successfully enter the request room,
           // reset the URL so they don't think they're in the requested room.
-          $location.search({});
-        } else if ($scope.isCustomGame() && !$location.search().game) {
+        $location.search({});
+      } else if ($scope.isCustomGame() && !$location.search().game) {
           // Once the game ID is set, update the URL if this is a game with friends,
           // where the link is meant to be shared.
-          $location.search({ game: game.gameID });
-          if (!$scope.modalShown) {
-            setTimeout(() => {
-              const link = document.URL;
-              const txt = 'Give the following link to your friends so they can join your game: ';
-              $('#lobby-how-to-play').text(txt);
-              $('#oh-el').css({ 'text-align': 'center', 'font-size': '22px', background: 'white', color: 'black' }).text(link);
-            }, 200);
-            $scope.modalShown = true;
-          }
-        }
+        $location.search({ game: game.gameID });
+        // if (!$scope.modalShown) {
+        //   setTimeout(() => {
+        //     const link = document.URL;
+        //     const txt = 'Give the following link to your friends so they can join your game: ';
+        //     $('#lobby-how-to-play').text(txt);
+        //     $('#oh-el').css({ 'text-align': 'center', 'font-size': '22px', background: 'white', color: 'black' }).text(link);
+        //   }, 200);
+        //   $scope.modalShown = true;
+        // }
+      }
     }
   });
 
