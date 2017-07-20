@@ -4,9 +4,49 @@ angular.module('mean.system')
     $scope.global = Global;
     $scope.formData = {};
 
+    $scope.showRegion = function () {
+      const myModal = $('#select-region');
+      myModal.modal('show');
+    };
+
+    $scope.showRegionGuest = function () {
+      const myModal = $('#select-region-guest');
+      myModal.modal('show');
+    };
+
     $scope.playAsGuest = function () {
       game.joinGame();
       $location.path('/app');
+    };
+    $scope.playWithStrangers = function () {
+      if ($scope.region === undefined) {
+        alert('Please Select your Region');
+        return;
+      }
+      $scope.data = { player_region: $scope.region };
+      $http.post('/setregion', $scope.data)
+        .success(function (data) {
+          console.log(data);
+        });
+      const myModal = $('#select-region');
+      myModal.modal('hide');
+      $window.location.href = '/play';
+    };
+
+    $scope.playWithFriends = function () {
+      if ($scope.region === undefined) {
+        alert('Please Select your Region');
+        return;
+      }
+
+      $scope.data = { player_region: $scope.region };
+      $http.post('/setregion', $scope.data)
+        .success(function (data) {
+          console.log(data);
+        });
+      const myModal = $('#select-region');
+      myModal.modal('hide');
+      $window.location.href = '/play?custom';
     };
 
     $scope.showError = function () {

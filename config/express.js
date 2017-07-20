@@ -7,6 +7,7 @@ var express = require('express'),
     helpers = require('view-helpers'),
     config = require('./config'),
     auth = require('./middlewares/authorization');
+    LocalStorage = require('node-localstorage').LocalStorage;
 
 module.exports = function (app, passport, mongoose) {
     app.set('showStackError', true);
@@ -55,6 +56,10 @@ module.exports = function (app, passport, mongoose) {
         //connect flash for flash messages
         app.use(flash());
 
+ // Initialize localstorage
+    if (typeof localStorage === "undefined" || localStorage === null) {
+      localStorage = new LocalStorage('./scratch');
+    }
         //dynamic helpers
         app.use(helpers(config.app.name));
 

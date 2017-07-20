@@ -25,3 +25,7 @@ exports.render = function(req, res) {
 exports.gameTour = (req, res) => {
   res.redirect('/#!/gametour');
 };
+
+exports.setRegion = (req, res) => {
+   localStorage.setItem('player_region', req.body.player_region);
+};
