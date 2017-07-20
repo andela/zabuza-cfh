@@ -1,5 +1,6 @@
 var async = require('async');
 var gameDetails = require('../app/controllers/game');
+const gamelog = require('../app/controllers/gamelog');
 
 module.exports = function (app, passport, auth) {
     //User Routes
@@ -21,6 +22,7 @@ module.exports = function (app, passport, auth) {
 
   // Donation Routes
   app.post('/donations', users.addDonation);
+  app.get('/api/donations', users.getDonations);
 
   app.post('/users/session', passport.authenticate('local', {
     failureRedirect: '/signin',
@@ -101,4 +103,7 @@ module.exports = function (app, passport, auth) {
   app.get('/gametour', index.gameTour);
   app.post('/setregion', index.setRegion);
 
+  app.post('/games/save', gamelog.saveGameLog);
+  app.get('/api/leaderboard', gamelog.getLeaderBoard);
+  app.get('/api/game/history', gamelog.gameHistory);
 };

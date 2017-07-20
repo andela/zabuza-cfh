@@ -1,0 +1,106 @@
+<div  ng-controller="DashboardController" class="authentication">
+  <nav id="signup" class="navbar navbar-default navbar-auth">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand page-scroll" id="cardLogo" href="/">Cards For Humanity</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li clasxs="hidden">
+              <a href="#page-top"></a>
+            </li>
+            <li><a onClick="scroll(0,0)" href="/" class="page-scroll">HOME</a></li>
+          </ul>
+        </div>
+      </div>
+      
+  </nav>
+  <br>
+  <br>
+ <div class="col-md-8 col-md-offset-2 text-center">
+     <div class="btn-group" role="group" aria-label="...">
+       <button type="button" class="btn btn-default btn-lg orange-text-color" id="games" ng-click="showGames()">Games</button>
+       <button type="button" class="btn btn-default btn-lg orange-text-color" id="donations"  ng-click="showDonations()">Donations</button>
+       <button type="button" class="btn btn-default btn-lg orange-text-color" id="leaderboard" ng-click="showLeaderBoard()">LeaderBoard</button>
+    </div>
+     <br>
+     <br>
+     <br>
+     <br>
+
+    <div class="panel panel-default signup-panel"> 
+        <div class="panel-heading">
+          <span class="orange-text-color">Dashboard</span>
+        </div>
+        <div ng-show="noDonations">
+            <h3 class="orange-text-color">You haven't made any donations yet</h3>
+        </div>
+     <div class="table-responsive">
+
+     <table class="table table-bordered  table-striped" ng-show="donations">    
+      <thead>
+        <tr>
+          <th class="text-center orange-text-color">Avatar</th>
+          <th class="text-center orange-text-color">User</th>
+          <th class="text-center orange-text-color">Donations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="information in donationData">
+            <td><img src="{{information.avatar}}" /></td>
+            <td class="orange-text-color">{{information.name}}</td>
+            <td class="orange-text-color">{{information.donations}}</td>
+        </tr>
+      </tbody>
+     </table>
+     
+     <table class="table table-bordered  table-striped" ng-show="leaderboard" style="table-layout: fixed">
+         <thead>
+             <tr>
+                 <th class="text-center orange-text-color">Name</th>
+                 <th class="text-center orange-text-color">Wins</th>
+            </tr>
+         </thead>
+        <tbody>
+           <tr ng-repeat="leaderBoard in leaderboardInfo | orderBy: '-frequency'">
+                <td class="orange-text-color">{{leaderBoard.winner}}</td>
+                <td class="orange-text-color">{{leaderBoard.frequency}}</td>
+           </tr>
+        </tbody>
+     </table>
+
+      <table class="table table-bordered  table-striped" ng-show="gameLog">
+          <thead>
+              <tr>
+                <th class="text-center orange-text-color">#</th>
+                <th class="text-center orange-text-color">Winner</th>
+                <th class="text-center orange-text-color">Friends Played with</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="gamelog in gameLogInfo">
+                <td class="orange-text-color">{{gamelog.id}}</td>
+                <td class="orange-text-color">{{gamelog.winner}}</td>
+                <td>
+                    <ul>
+                        <li ng-repeat="player in gamelog.players" > 
+                            <span class="orange-text-color">{{ player.username }}</span>
+                        </li>
+                    </ul>
+
+                </td>
+            </tr>
+        </tbody>
+     </table>
+
+     </div>
+    </div>
+ </div>
+</div>
+</div> 

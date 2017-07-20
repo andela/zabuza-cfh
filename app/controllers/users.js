@@ -227,3 +227,20 @@ exports.user = function (req, res, next, id) {
       next();
     });
 };
+
+exports.getDonations = (req, res) => {
+  User.find()
+  .then((response) => {
+    if (response.length === 0) {
+      return res.send({ message: 'no data' });
+    }
+    let donationData = [];
+    response.forEach((array) => {
+      donationData.push({ name: array.name, avatar: array.avatar, donations: array.donations.length });
+    });
+    res.send(donationData);
+  })
+  .catch((error) => {
+    res.send(error);
+  });
+};
