@@ -698,6 +698,9 @@ body {
   width: 65%;
   cursor: pointer;
 }
+a:hover{
+  text-decoration: none;
+}
 @media only screen and (min-width: 521px) and (max-width: 768px) {
   #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container #start-game-button {
     padding: 0.65em 2px;
@@ -943,6 +946,21 @@ body {
   font-size: 21px;
   /* line-height: 155%; */
   padding-top: 10px;
+}
+
+#invite{
+   border-radius: 8px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: 400;
+   background: white;
+  color: #cf6d17;
+  padding: 0.65em 10px;
+  margin: 10px;
+  width: 65%;
+  cursor: pointer;
 }
 #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #exit-match:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));

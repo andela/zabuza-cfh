@@ -28,7 +28,7 @@ function Game(gameID, io) {
   this.winnerAutopicked = false;
   this.czar = -1; // Index in this.players
   this.playerMinLimit = 3;
-  this.playerMaxLimit = 6;
+  this.playerMaxLimit = 12;
   this.pointLimit = 5;
   this.state = 'awaiting players';
   this.round = 0;
@@ -59,6 +59,7 @@ Game.prototype.payload = function () {
       hand: player.hand,
       points: player.points,
       username: player.username,
+      email: player.email,
       avatar: player.avatar,
       premium: player.premium,
       socketID: player.socket.id,
@@ -234,7 +235,12 @@ Game.prototype.stateResults = function (self) {
 
 Game.prototype.stateEndGame = function (winner) {
   this.state = 'game ended';
+  const winnerData = { winnerEmail: this.players[winner].email, winnerUsername: this.players[winner].username };  
   this.gameWinner = winner;
+  const currentPlayers = [];
+  this.players.forEach((log) => {
+    currentPlayers.push({ username: log.username, email: log.email, avatar: log.avatar, userID: log.userID });
+  });
   this.sendUpdate();
 };
 

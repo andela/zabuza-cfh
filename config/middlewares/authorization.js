@@ -1,4 +1,5 @@
-/* global jwt secret */
+const jwt = require('jsonwebtoken');
+const config = require('../env/all.js');
 /**
  * Generic require login routing middleware
  */
@@ -21,27 +22,16 @@ exports.user = {
   }
 };
 
-/**
- * Article authorizations routing middleware
- */
-// exports.article = {
-//     hasAuthorization: function(req, res, next) {
-//         if (req.article.user.id != req.user.id) {
-//             return res.send(401, 'User is not authorized');
-//         }
-//         next();
-//     }
-// };
 
 // Routing process of the middleware to verify a user token
 exports.checkToken = (req, res, next) => {
   // checking header or url parameters or post parameters for token
   if (req.url.startsWith('/auth')) return next();
-  const token = req.cookies.token;
+  const token = localStorage.getItem('JWTOKEN');
   // decoding the token
   if (token) {
     // verifies secret and checks
-    jwt.verify(token, secret, function (error, decoded) {
+    jwt.verify(token, config.secret, function (error, decoded) {
       if (error) {
         return res.status(403).json({
           message: 'Failed to authenticate token.'
