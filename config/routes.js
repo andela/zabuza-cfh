@@ -97,4 +97,8 @@ module.exports = function (app, passport, auth) {
   app.get('/gametour', index.gameTour);
   app.post('/setregion', index.setRegion);
 
+
+  // authenticated endpoint to search current users
+  app.get('/api/users/search', users.search);
+  app.post('/api/user/invite/:user_details', users.invitePlayers);
 };
