@@ -62,7 +62,8 @@ Game.prototype.payload = function () {
       avatar: player.avatar,
       premium: player.premium,
       socketID: player.socket.id,
-      color: player.color
+      color: player.color,
+      userID: player.userID
     });
   });
   return {
