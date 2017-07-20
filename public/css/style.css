@@ -272,7 +272,7 @@ div#gamerules{
     color: #fff;
     font-size: 20px;
     font-family: 'Lato', sans-serif;
-    padding: 6px 25px;
+    padding: 6px 20px;
     border-radius: 5px;
     border: 2px solid #cf6d17;
     background: #cf6d17;
@@ -302,14 +302,14 @@ div#gamerules{
 #guest-btn:hover {
   border: 2px solid #993300;
   color: #993300;
-  transition: 0.6s;
+  transition: 0.5s;
 }
 div.sign-up span a {
   text-decoration: none;
 }
 a.stranger-btn {
   padding: 7px 15px;
-  margin-right: 20px;
+  margin-right: 10px;
   border-radius: 5px;
   border: 1px solid #cf6d17;
   background-color: #cf6d17;
@@ -319,6 +319,7 @@ a.stranger-btn {
 .stranger-btn:hover, .friends-btn:hover {
   opacity: 0.7;
   transition-duration: 0.5s;
+  cursor: pointer;
 }
 
 a.friends-btn {
