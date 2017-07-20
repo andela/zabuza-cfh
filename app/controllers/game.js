@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const Game = mongoose.model('Game');
 
 exports.saveGame = (req, res) => {
-  console.log('Hello backed');
   const game = new Game();
 
   game.gameId = req.params.id;
