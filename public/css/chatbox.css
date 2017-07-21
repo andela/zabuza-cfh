@@ -7,7 +7,7 @@ chatbox {
   border: 1px solid #fff;
   bottom: -50px;
   right: 10px;
-  z-index: 1003;
+  z-index: 3;
   padding-top: 15%;
   padding-bottom: 0;
   margin-bottom: 0px;
