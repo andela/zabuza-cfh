@@ -1,0 +1,33 @@
+.orange-bg {
+  background: #cf6d17;
+}
+
+#cardLogo {
+	font-family: Lobster;
+	font-size: 28px;
+	display: inline-block;
+	color: #cf6d17;
+}
+
+.orange-text-color {
+	color: #cf6d17;
+	font-family: Lobster;
+}
+#games:hover{
+	color: #ae5c04;
+}
+#games.active {
+	color: #ae5c04;
+}
+#donations:hover {
+	color: #ae5c04;
+}
+#donations.active {
+	color: #ae5c04;
+}
+#leaderboard:hover {
+	color: #ae5c04;
+}
+#leaderboard.active {
+	color: #ae5c04;
+}

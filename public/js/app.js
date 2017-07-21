@@ -26,6 +26,9 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ngRoute', 'ui.bootstrap', 'u
           when('/gametour', {
             templateUrl: '/views/onboard.html'
           }).
+          when('/dashboard', {
+            templateUrl: '/views/dashboard.html'
+          }).
           otherwise({
             redirectTo: '/'
           });

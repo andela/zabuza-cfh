@@ -8,7 +8,7 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 var config = require('../../config/config');
 var avatars = require('./avatars').all();
-var  User = mongoose.model('User');
+var User = mongoose.model('User');
 
 
 /**
@@ -251,6 +251,25 @@ exports.user = function (req, res, next, id) {
     });
 };
 
+
+exports.getDonations = (req, res) => {
+  User.find()
+  .then((response) => {
+    if (response.length === 0) {
+      return res.send({ message: 'no data' });
+    }
+    const donationData = [];
+    response.forEach((array) => {
+      donationData.push({ name: array.name,
+        avatar: array.avatar,
+        donations: array.donations.length });
+    });
+    res.send(donationData);
+  })
+  .catch((error) => {
+    res.send(error);
+  });
+};
 // Get all user in the dtatabase
 module.exports.search = (req, res) => {
   // get all the users from mongoDB
@@ -287,7 +306,7 @@ module.exports.invitePlayers = (req, res) => {
     if (error) {
       return res.status(error.response.statusCode).json();
     }
-    return res.json({response});
+    return res.json({ response });
     // return res.json({ sent: true });
   });
 };
