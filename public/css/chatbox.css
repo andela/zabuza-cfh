@@ -5,9 +5,9 @@ chatbox {
   position: fixed; 
   background-color: #fff;
   border: 1px solid #fff;
-  bottom: -50px;
-  right: 10px;
-  z-index: 3;
+  bottom: 0px;
+  right: 0px;
+  z-index: 11111;
   padding-top: 15%;
   padding-bottom: 0;
   margin-bottom: 0px;
@@ -38,11 +38,13 @@ chatbox {
   max-height: 150px;
   overflow: auto;
   display: none;
+  background-color: rgba(105, 105, 105, 0.4);
 }
 .chatbox .chat .chat-meta {
   display: block;
   margin-left: 5px;
   font-size: 14px;
+  color: #cf6d17;
 }
 .chatbox .chat .chat-meta img {
   float: left;
@@ -52,7 +54,7 @@ chatbox {
 .chatbox .chat .chat-message {
   display: inline-block;
   margin: 5px 0px 20px 20px;
-  background-color: #e6e6e6;
+  /* background-color: #e6e6e6; */
   padding: 5px;
 }
 .chatbox .chat-header .fa-chevron-down,
@@ -95,10 +97,11 @@ chatbox {
   border-radius: 100%;
   padding: 5px;
   display: none;
+  font-family: 'Lobster', 'cursive';
  }
 
 #chatInput{
   background-color: #f1f1f1 !important;
   padding: 0px 1px !important;
-  min-height: 50px;
+  min-height: 40px;
 }

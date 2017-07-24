@@ -11,22 +11,27 @@
   display: inline-block;
   box-sizing: border-box;
   width: 17.5%;
-  height: 215px;
+  height: 150px;
   padding: 1%;
   margin: 1%;
   background-color: #fff;
   border-radius: 8px;
-  color: #252525;
+  color: #cf6d17;
   font-family: Arial;
   font-size: 20px;
   font-weight: bold;
-  vertical-align: top;
+  vertical-align: middle;
   box-shadow: 1px 1px 2px black;
+}
+.card .text {
+    position: absolute;
+    top: 50px;
+    left: 23px;
 }
 @media (max-width: 520px) {
   .card {
     font-size: 14px;
-    height: 115px;
+    height: 90px;
     word-wrap: break-word;
   }
 }
