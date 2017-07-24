@@ -186,9 +186,9 @@ angular.module('mean.system')
   };
 
   $scope.isPlayer = function ($index) {
-    if ($index === 0) {
-      window.localStorage.setItem('username', $scope.game.players[0].username);
-      window.localStorage.setItem('avatar', $scope.game.players[0].avatar);
+    if ($index === game.playerIndex) {
+      window.localStorage.setItem('username', $scope.game.players[$index].username);
+      window.localStorage.setItem('avatar', $scope.game.players[$index].avatar);
     }
     return $index === game.playerIndex;
   };
