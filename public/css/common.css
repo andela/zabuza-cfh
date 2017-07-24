@@ -11,22 +11,27 @@
   display: inline-block;
   box-sizing: border-box;
   width: 17.5%;
-  height: 215px;
+  height: 150px;
   padding: 1%;
   margin: 1%;
   background-color: #fff;
   border-radius: 8px;
-  color: #252525;
+  color: #cf6d17;
   font-family: Arial;
   font-size: 20px;
   font-weight: bold;
-  vertical-align: top;
+  vertical-align: middle;
   box-shadow: 1px 1px 2px black;
+}
+.card .text {
+    position: absolute;
+    top: 50px;
+    left: 23px;
 }
 @media (max-width: 520px) {
   .card {
     font-size: 14px;
-    height: 115px;
+    height: 90px;
     word-wrap: break-word;
   }
 }
@@ -225,12 +230,7 @@ body {
   margin-right: 0px;
   
 }
-.fa {
-  color:  #0084b4;
-}
-.fa:hover {
-  font-size: initial !important;
-}
+
 #main-container #app-container #menu-container #tweet-container .fa:hover {
   opacity: 0.5 !important;
 }
@@ -695,7 +695,7 @@ body {
   background: #cf6d17;
   padding: 0.65em 10px;
   margin: 10px;
-  width: 65%;
+  width: 40%;
   cursor: pointer;
 }
 a:hover{
@@ -959,8 +959,13 @@ a:hover{
   color: #cf6d17;
   padding: 0.65em 10px;
   margin: 10px;
-  width: 65%;
+  width: 40%;
   cursor: pointer;
+}
+#invite:hover {
+  background: none;
+  border: 1px solid #cf6d17;
+  transition: 0.4s;
 }
 #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #exit-match:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
